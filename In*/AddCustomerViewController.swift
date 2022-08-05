@@ -1,19 +1,17 @@
 //
-//  ViewController.swift
+//  AddCustomerViewController.swift
 //  In*
 //
-//  Created by Mohammad Sulthan on 05/08/22.
+//  Created by Mohammad Sulthan on 06/08/22.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class AddCustomerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
-
-
 }
-
