@@ -17,6 +17,12 @@
 		1771E6F3289D7BE500AAFC78 /* In.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1771E6F1289D7BE500AAFC78 /* In.xcdatamodeld */; };
 		177CC81E289DAA5C0036F1FF /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177CC81D289DAA5C0036F1FF /* ProductDetailViewController.swift */; };
 		177CC820289DAE950036F1FF /* AddCustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177CC81F289DAE950036F1FF /* AddCustomerViewController.swift */; };
+		178A365128A80738007924AC /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A365028A80738007924AC /* Extension+UITextField.swift */; };
+		17A50AD928A5835000402A72 /* NewProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A50AD828A5835000402A72 /* NewProductViewController.swift */; };
+		17A50ADB28A5F7D700402A72 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A50ADA28A5F7D700402A72 /* TabBarViewController.swift */; };
+		17A50ADD28A5F91D00402A72 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A50ADC28A5F91D00402A72 /* DashboardViewController.swift */; };
+		17C13B0C28A56C88008B49FC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C13B0B28A56C88008B49FC /* CoreDataManager.swift */; };
+		17C5C6E428A6507A0009DBF0 /* Extension+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C5C6E328A6507A0009DBF0 /* Extension+UITableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +38,12 @@
 		1771E6F2289D7BE500AAFC78 /* In.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = In.xcdatamodel; sourceTree = "<group>"; };
 		177CC81D289DAA5C0036F1FF /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		177CC81F289DAE950036F1FF /* AddCustomerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomerViewController.swift; sourceTree = "<group>"; };
+		178A365028A80738007924AC /* Extension+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITextField.swift"; sourceTree = "<group>"; };
+		17A50AD828A5835000402A72 /* NewProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProductViewController.swift; sourceTree = "<group>"; };
+		17A50ADA28A5F7D700402A72 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		17A50ADC28A5F91D00402A72 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		17C13B0B28A56C88008B49FC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		17C5C6E328A6507A0009DBF0 /* Extension+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITableView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +76,7 @@
 		1771E6D8289D619200AAFC78 /* In* */ = {
 			isa = PBXGroup;
 			children = (
+				17C5C6E228A6503F0009DBF0 /* Extension */,
 				1771E6D9289D619200AAFC78 /* AppDelegate.swift */,
 				1771E6DB289D619200AAFC78 /* SceneDelegate.swift */,
 				1771E6DD289D619200AAFC78 /* ProductViewController.swift */,
@@ -75,8 +88,21 @@
 				1771E6F1289D7BE500AAFC78 /* In.xcdatamodeld */,
 				177CC81D289DAA5C0036F1FF /* ProductDetailViewController.swift */,
 				177CC81F289DAE950036F1FF /* AddCustomerViewController.swift */,
+				17C13B0B28A56C88008B49FC /* CoreDataManager.swift */,
+				17A50AD828A5835000402A72 /* NewProductViewController.swift */,
+				17A50ADA28A5F7D700402A72 /* TabBarViewController.swift */,
+				17A50ADC28A5F91D00402A72 /* DashboardViewController.swift */,
 			);
 			path = "In*";
+			sourceTree = "<group>";
+		};
+		17C5C6E228A6503F0009DBF0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				17C5C6E328A6507A0009DBF0 /* Extension+UITableView.swift */,
+				178A365028A80738007924AC /* Extension+UITextField.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +121,8 @@
 			dependencies = (
 			);
 			name = "In*";
+			packageProductDependencies = (
+			);
 			productName = "In*";
 			productReference = 1771E6D6289D619200AAFC78 /* In*.app */;
 			productType = "com.apple.product-type.application";
@@ -123,6 +151,8 @@
 				Base,
 			);
 			mainGroup = 1771E6CD289D619200AAFC78;
+			packageReferences = (
+			);
 			productRefGroup = 1771E6D7289D619200AAFC78 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -150,12 +180,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				178A365128A80738007924AC /* Extension+UITextField.swift in Sources */,
 				1771E6EF289D747000AAFC78 /* InventoryTableViewCell.swift in Sources */,
 				177CC820289DAE950036F1FF /* AddCustomerViewController.swift in Sources */,
 				1771E6DE289D619200AAFC78 /* ProductViewController.swift in Sources */,
+				17A50AD928A5835000402A72 /* NewProductViewController.swift in Sources */,
 				1771E6DA289D619200AAFC78 /* AppDelegate.swift in Sources */,
 				1771E6F3289D7BE500AAFC78 /* In.xcdatamodeld in Sources */,
 				1771E6DC289D619200AAFC78 /* SceneDelegate.swift in Sources */,
+				17C5C6E428A6507A0009DBF0 /* Extension+UITableView.swift in Sources */,
+				17C13B0C28A56C88008B49FC /* CoreDataManager.swift in Sources */,
+				17A50ADD28A5F91D00402A72 /* DashboardViewController.swift in Sources */,
+				17A50ADB28A5F7D700402A72 /* TabBarViewController.swift in Sources */,
 				177CC81E289DAA5C0036F1FF /* ProductDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
