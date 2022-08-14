@@ -1,5 +1,5 @@
 //
-//  AddCustomerViewController.swift
+//  PurchaseProductViewController.swift
 //  In*
 //
 //  Created by Mohammad Sulthan on 06/08/22.
@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class AddCustomerViewController: UIViewController {
+class PurchaseProductViewController: UIViewController {
     
     var deliveryType = ""
     var productName = ""
@@ -20,6 +20,8 @@ class AddCustomerViewController: UIViewController {
         let field = UITextField()
         field.borderStyle = .roundedRect
         field.placeholder = "Product Name"
+        field.isUserInteractionEnabled = false
+        field.textColor = .lightGray
         field.translatesAutoresizingMaskIntoConstraints = false
         return field
     }()
@@ -28,6 +30,18 @@ class AddCustomerViewController: UIViewController {
         let field = UITextField()
         field.borderStyle = .roundedRect
         field.placeholder = "Quantity"
+        field.keyboardType = .numberPad
+        
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        doneToolbar.barStyle = .default
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
+
+        let items = [flexSpace, done]
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+
+        field.inputAccessoryView = doneToolbar
         field.translatesAutoresizingMaskIntoConstraints = false
         return field
     }()
@@ -35,9 +49,11 @@ class AddCustomerViewController: UIViewController {
     lazy var submitButton: UIButton = {
         let button = UIButton(type: .roundedRect)
         button.setTitle("Add", for: .normal)
-        button.tintColor = .darkGray
+        button.tintColor = .white
         button.layer.borderColor = UIColor.lightGray.cgColor
         button.layer.borderWidth = 1
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 4
         button.addTarget(self, action: #selector(saveData), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -46,8 +62,8 @@ class AddCustomerViewController: UIViewController {
     lazy var deliveryButton: UIButton = {
         let button = UIButton(type: .roundedRect)
         button.setTitle("Select Delivery Type", for: .normal)
-        button.tintColor = .darkGray
-        button.layer.borderColor = UIColor.darkGray.cgColor
+        button.tintColor = .lightGray
+        button.layer.borderColor = UIColor.lightGray.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 4
         button.addTarget(self, action: #selector(openDelivery), for: .touchUpInside)
@@ -110,6 +126,9 @@ class AddCustomerViewController: UIViewController {
         setupTextField()
         setupButton()
         setupConstraint()
+        
+        title = "Add New Purchase"
+        nameTextField.text = productName
     }
     
     fileprivate func setupDeliveryTypeForm() {
@@ -182,16 +201,22 @@ class AddCustomerViewController: UIViewController {
         picker.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 200, width: UIScreen.main.bounds.size.width, height: 200)
         view.addSubview(picker)
                 
+        let flexibleButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDoneButtonTapped))
         toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 200, width: UIScreen.main.bounds.size.width, height: 40))
-        toolBar.barStyle = UIBarStyle.black
-        toolBar.items = [UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDoneButtonTapped))]
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.items = [flexibleButton, doneButton]
         view.addSubview(toolBar)
+    }
+    
+    @objc func doneButtonAction() {
+        quantityTextField.resignFirstResponder()
     }
     
     @objc private func saveData() {
         let managedObjectContext = CoreDataManager.shared.persistentContainer.viewContext
         
-        let customerData = CustomerData(context: managedObjectContext)
+        let customerData = Order(context: managedObjectContext)
         
         customerData.name = "Name"
         customerData.quantity = 2
@@ -244,7 +269,7 @@ class AddCustomerViewController: UIViewController {
     }
 }
 
-extension AddCustomerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension PurchaseProductViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -260,7 +285,8 @@ extension AddCustomerViewController: UIPickerViewDelegate, UIPickerViewDataSourc
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         deliveryType = pickerArray[row].lowercased()
-        deliveryButton.setTitle("Type: \(pickerArray[row])", for: .normal)
+        deliveryButton.isSelected = true
+        deliveryButton.setTitle("Type: \(pickerArray[row])", for: .selected)
         setupDeliveryTypeForm()
     }
 }

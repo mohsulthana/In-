@@ -16,8 +16,10 @@
 		1771E6F0289D747000AAFC78 /* InventoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1771E6EE289D747000AAFC78 /* InventoryTableViewCell.xib */; };
 		1771E6F3289D7BE500AAFC78 /* In.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1771E6F1289D7BE500AAFC78 /* In.xcdatamodeld */; };
 		177CC81E289DAA5C0036F1FF /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177CC81D289DAA5C0036F1FF /* ProductDetailViewController.swift */; };
-		177CC820289DAE950036F1FF /* AddCustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177CC81F289DAE950036F1FF /* AddCustomerViewController.swift */; };
+		177CC820289DAE950036F1FF /* PurchaseProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177CC81F289DAE950036F1FF /* PurchaseProductViewController.swift */; };
 		178A365128A80738007924AC /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A365028A80738007924AC /* Extension+UITextField.swift */; };
+		178A365328A81BE7007924AC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A365228A81BE7007924AC /* LoginViewController.swift */; };
+		178A365528A81BF1007924AC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A365428A81BF1007924AC /* SignUpViewController.swift */; };
 		17A50AD928A5835000402A72 /* NewProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A50AD828A5835000402A72 /* NewProductViewController.swift */; };
 		17A50ADB28A5F7D700402A72 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A50ADA28A5F7D700402A72 /* TabBarViewController.swift */; };
 		17A50ADD28A5F91D00402A72 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A50ADC28A5F91D00402A72 /* DashboardViewController.swift */; };
@@ -37,8 +39,10 @@
 		1771E6EE289D747000AAFC78 /* InventoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InventoryTableViewCell.xib; sourceTree = "<group>"; };
 		1771E6F2289D7BE500AAFC78 /* In.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = In.xcdatamodel; sourceTree = "<group>"; };
 		177CC81D289DAA5C0036F1FF /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
-		177CC81F289DAE950036F1FF /* AddCustomerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomerViewController.swift; sourceTree = "<group>"; };
+		177CC81F289DAE950036F1FF /* PurchaseProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseProductViewController.swift; sourceTree = "<group>"; };
 		178A365028A80738007924AC /* Extension+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITextField.swift"; sourceTree = "<group>"; };
+		178A365228A81BE7007924AC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		178A365428A81BF1007924AC /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		17A50AD828A5835000402A72 /* NewProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProductViewController.swift; sourceTree = "<group>"; };
 		17A50ADA28A5F7D700402A72 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		17A50ADC28A5F91D00402A72 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -76,22 +80,15 @@
 		1771E6D8289D619200AAFC78 /* In* */ = {
 			isa = PBXGroup;
 			children = (
+				17D5BECC28A8E8BE0052230A /* View */,
+				17D5BEC928A8E8840052230A /* Manager */,
 				17C5C6E228A6503F0009DBF0 /* Extension */,
 				1771E6D9289D619200AAFC78 /* AppDelegate.swift */,
 				1771E6DB289D619200AAFC78 /* SceneDelegate.swift */,
-				1771E6DD289D619200AAFC78 /* ProductViewController.swift */,
 				1771E6E2289D619500AAFC78 /* Assets.xcassets */,
 				1771E6E4289D619500AAFC78 /* LaunchScreen.storyboard */,
 				1771E6E7289D619500AAFC78 /* Info.plist */,
-				1771E6ED289D747000AAFC78 /* InventoryTableViewCell.swift */,
-				1771E6EE289D747000AAFC78 /* InventoryTableViewCell.xib */,
 				1771E6F1289D7BE500AAFC78 /* In.xcdatamodeld */,
-				177CC81D289DAA5C0036F1FF /* ProductDetailViewController.swift */,
-				177CC81F289DAE950036F1FF /* AddCustomerViewController.swift */,
-				17C13B0B28A56C88008B49FC /* CoreDataManager.swift */,
-				17A50AD828A5835000402A72 /* NewProductViewController.swift */,
-				17A50ADA28A5F7D700402A72 /* TabBarViewController.swift */,
-				17A50ADC28A5F91D00402A72 /* DashboardViewController.swift */,
 			);
 			path = "In*";
 			sourceTree = "<group>";
@@ -101,8 +98,57 @@
 			children = (
 				17C5C6E328A6507A0009DBF0 /* Extension+UITableView.swift */,
 				178A365028A80738007924AC /* Extension+UITextField.swift */,
+				178A365428A81BF1007924AC /* SignUpViewController.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		17D5BEC828A8E85E0052230A /* TabItemViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1771E6DD289D619200AAFC78 /* ProductViewController.swift */,
+				17A50ADC28A5F91D00402A72 /* DashboardViewController.swift */,
+			);
+			path = TabItemViewController;
+			sourceTree = "<group>";
+		};
+		17D5BEC928A8E8840052230A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				17C13B0B28A56C88008B49FC /* CoreDataManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		17D5BECA28A8E89B0052230A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				17D5BECB28A8E8A40052230A /* CustomTableViewCell */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		17D5BECB28A8E8A40052230A /* CustomTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				1771E6ED289D747000AAFC78 /* InventoryTableViewCell.swift */,
+				1771E6EE289D747000AAFC78 /* InventoryTableViewCell.xib */,
+			);
+			path = CustomTableViewCell;
+			sourceTree = "<group>";
+		};
+		17D5BECC28A8E8BE0052230A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				17D5BEC828A8E85E0052230A /* TabItemViewController */,
+				17D5BECA28A8E89B0052230A /* Components */,
+				178A365228A81BE7007924AC /* LoginViewController.swift */,
+				177CC81D289DAA5C0036F1FF /* ProductDetailViewController.swift */,
+				17A50ADA28A5F7D700402A72 /* TabBarViewController.swift */,
+				17A50AD828A5835000402A72 /* NewProductViewController.swift */,
+				177CC81F289DAE950036F1FF /* PurchaseProductViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,14 +226,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				178A365328A81BE7007924AC /* LoginViewController.swift in Sources */,
 				178A365128A80738007924AC /* Extension+UITextField.swift in Sources */,
 				1771E6EF289D747000AAFC78 /* InventoryTableViewCell.swift in Sources */,
-				177CC820289DAE950036F1FF /* AddCustomerViewController.swift in Sources */,
+				177CC820289DAE950036F1FF /* PurchaseProductViewController.swift in Sources */,
 				1771E6DE289D619200AAFC78 /* ProductViewController.swift in Sources */,
 				17A50AD928A5835000402A72 /* NewProductViewController.swift in Sources */,
 				1771E6DA289D619200AAFC78 /* AppDelegate.swift in Sources */,
 				1771E6F3289D7BE500AAFC78 /* In.xcdatamodeld in Sources */,
 				1771E6DC289D619200AAFC78 /* SceneDelegate.swift in Sources */,
+				178A365528A81BF1007924AC /* SignUpViewController.swift in Sources */,
 				17C5C6E428A6507A0009DBF0 /* Extension+UITableView.swift in Sources */,
 				17C13B0C28A56C88008B49FC /* CoreDataManager.swift in Sources */,
 				17A50ADD28A5F91D00402A72 /* DashboardViewController.swift in Sources */,

@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="CustomerData" representedClassName="CustomerData" syncable="YES" codeGenerationType="class">
-        <attribute name="deliveryAddress" optional="YES" attributeType="String"/>
+    <entity name="DeliveryAddress" representedClassName="DeliveryAddress" syncable="YES" codeGenerationType="class">
+        <attribute name="address1" optional="YES" attributeType="String"/>
+        <attribute name="address2" optional="YES" attributeType="String"/>
+        <attribute name="address3" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Order" representedClassName="Order" syncable="YES" codeGenerationType="class">
         <attribute name="deliveryType" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="pickupAddress" optional="YES" attributeType="String"/>
         <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="PickupAddress" representedClassName="PickupAddress" syncable="YES" codeGenerationType="class">
+        <attribute name="pickup1" optional="YES" attributeType="String"/>
+        <attribute name="pickup2" optional="YES" attributeType="String"/>
+        <attribute name="pickup3" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Product" representedClassName="Product" syncable="YES" codeGenerationType="class">
         <attribute name="brand" optional="YES" attributeType="String"/>
@@ -15,8 +24,10 @@
     </entity>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class"/>
     <elements>
-        <element name="CustomerData" positionX="-54" positionY="18" width="128" height="104"/>
+        <element name="Order" positionX="-54" positionY="18" width="128" height="89"/>
         <element name="Product" positionX="-63" positionY="-18" width="128" height="89"/>
         <element name="User" positionX="-63" positionY="-18" width="128" height="29"/>
+        <element name="DeliveryAddress" positionX="-45" positionY="36" width="128" height="74"/>
+        <element name="PickupAddress" positionX="-36" positionY="54" width="128" height="74"/>
     </elements>
 </model>

@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class DashboardViewController: UIViewController {
     let categoryItems = ["Order", "Completed", "Cancelled"]
 
@@ -25,11 +26,18 @@ class DashboardViewController: UIViewController {
         table.register(UINib(nibName: "InventoryTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         return table
     }()
+    
+    lazy var dashboardTableView: UITableView = {
+        let table = UITableView()
+        table.translatesAutoresizingMaskIntoConstraints = false
+        table.showsVerticalScrollIndicator = false
+        table.register(UINib(nibName: "InventoryTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        return table
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(segmentedControl)
-
         setupConstraint()
     }
 

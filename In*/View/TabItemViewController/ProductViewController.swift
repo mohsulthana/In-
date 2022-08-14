@@ -12,40 +12,40 @@ protocol ProductViewProtocol {
     func reloadData()
 }
 
-class ProductViewController: UIViewController {
+class ProductViewController: UIViewController, UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            filterProductForSearchText(searchText)
+            inventoryTableView.reloadData()
+        }
+    }
     
-    let item = ["Item 1", "Item 2"]
+    private func filterProductForSearchText(_ searchText: String) {
+        searchResult = products.filter({ (product: Product) -> Bool in
+            let productNameMatch = product.name?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+            
+            return productNameMatch != nil
+        })
+    }
+    
     var products: [Product] = []
-    
-    lazy var navBar: UINavigationBar = {
-        let screenSize: CGRect = UIScreen.main.bounds
-        
-        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 40, width: screenSize.width, height: 66))
-        let navItem = UINavigationItem(title: "Products")
-        let doneItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: nil, action: #selector(addItem))
-        navItem.rightBarButtonItem = doneItem
-        navBar.setItems([navItem], animated: false)
-        navBar.barTintColor = .white
-        navBar.layer.borderColor = UIColor.white.cgColor
-        navBar.layer.borderWidth = 0
-        return navBar
-    }()
+    var searchResult: [Product] = []
+    var searchController: UISearchController?
     
     lazy var inventoryTableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
+        table.showsVerticalScrollIndicator = false
         table.register(UINib(nibName: "InventoryTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         return table
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        
-        view.addSubview(navBar)
+        view.backgroundColor = .systemBackground
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(addItem))
         
         fetchProduct()
-
         setupTableView()
     }
     
@@ -68,18 +68,25 @@ class ProductViewController: UIViewController {
         let productDetailVC = NewProductViewController()
         productDetailVC.delegate = self
         productDetailVC.title = "Add New Product"
-        productDetailVC.navigationController?.navigationBar.prefersLargeTitles = false
-        present(productDetailVC, animated: true, completion: nil)
+        present(UINavigationController(rootViewController: productDetailVC), animated: true, completion: nil)
     }
     
     fileprivate func setupTableView() {
         view.addSubview(inventoryTableView)
         
+        searchController = UISearchController(searchResultsController: nil)
+        inventoryTableView.tableHeaderView = searchController?.searchBar
+        searchController?.searchResultsUpdater = self
+        searchController?.obscuresBackgroundDuringPresentation = false
+        
+        searchController?.searchBar.placeholder = "Search product by name"
+        searchController?.hidesNavigationBarDuringPresentation = true
+        
         inventoryTableView.delegate = self
         inventoryTableView.dataSource = self
         
         NSLayoutConstraint.activate([
-            inventoryTableView.topAnchor.constraint(equalTo: navBar.bottomAnchor),
+            inventoryTableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             inventoryTableView.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor),
             inventoryTableView.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor),
             inventoryTableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
@@ -89,16 +96,23 @@ class ProductViewController: UIViewController {
 
 extension ProductViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+        if searchController?.isActive ?? true {
+            return searchResult.count
+        }
         return products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? InventoryTableViewCell else { return UITableViewCell() }
-        cell.displayValue.text = products[indexPath.row].name
-        cell.quantityValue.text = "Quantity: \(products[indexPath.row].quantity)"
-        cell.brandValue.text = products[indexPath.row].brand
-        cell.typeValue.text = products[indexPath.row].type
+        let productName = searchResult.count > 0 ? searchResult[indexPath.row].name : products[indexPath.row].name
+        let quantity = searchResult.count > 0 ? searchResult[indexPath.row].quantity : products[indexPath.row].quantity
+        let brand = searchResult.count > 0 ? searchResult[indexPath.row].brand : products[indexPath.row].brand
+        let type = searchResult.count > 0 ? searchResult[indexPath.row].type : products[indexPath.row].type
+        
+        cell.displayValue.text = productName
+        cell.quantityValue.text = "\(quantity) pcs"
+        cell.brandValue.text = brand
+        cell.typeValue.text = type
         return cell
     }
     
@@ -107,9 +121,12 @@ extension ProductViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let productDetailVC = AddCustomerViewController()
-        productDetailVC.productName = item[indexPath.row]
-        present(productDetailVC, animated: true, completion: nil)
+        let customerPurchase = PurchaseProductViewController()
+        
+        if let product = products[indexPath.row].name {
+            customerPurchase.productName = product
+        }
+        present(UINavigationController(rootViewController: customerPurchase), animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
