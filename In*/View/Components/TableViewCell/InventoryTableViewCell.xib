@@ -35,7 +35,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kod-7K-up2">
-                        <rect key="frame" x="16" y="93" width="42" height="21"/>
+                        <rect key="frame" x="16" y="93" width="222" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="222" id="a6U-dg-TBc"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -54,7 +57,6 @@
                     <constraint firstItem="Kod-7K-up2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="OvM-7x-5ag"/>
                     <constraint firstAttribute="trailing" secondItem="ILM-lT-38b" secondAttribute="trailing" constant="16" id="PcH-fo-w09"/>
                     <constraint firstAttribute="bottom" secondItem="7Xo-7C-ed1" secondAttribute="bottom" constant="8" id="RYz-pZ-K2E"/>
-                    <constraint firstItem="7Xo-7C-ed1" firstAttribute="leading" secondItem="Kod-7K-up2" secondAttribute="trailing" constant="222" id="UYU-Dd-Yph"/>
                     <constraint firstItem="uWH-rB-pSw" firstAttribute="top" secondItem="ILM-lT-38b" secondAttribute="bottom" constant="8" id="YEB-1J-zpn"/>
                     <constraint firstItem="uWH-rB-pSw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="cII-2P-moE"/>
                     <constraint firstAttribute="trailing" secondItem="7Xo-7C-ed1" secondAttribute="trailing" constant="16" id="egh-Np-G3v"/>

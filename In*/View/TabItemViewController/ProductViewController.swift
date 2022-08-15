@@ -44,7 +44,7 @@ class ProductViewController: UIViewController, UISearchResultsUpdating {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(addItem))
-        
+        title = "Product List"
         fetchProduct()
         setupTableView()
     }
@@ -87,8 +87,8 @@ class ProductViewController: UIViewController, UISearchResultsUpdating {
         
         NSLayoutConstraint.activate([
             inventoryTableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            inventoryTableView.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor),
-            inventoryTableView.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor),
+            inventoryTableView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            inventoryTableView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             inventoryTableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
         ])
     }
@@ -122,10 +122,8 @@ extension ProductViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let customerPurchase = PurchaseProductViewController()
-        
-        if let product = products[indexPath.row].name {
-            customerPurchase.productName = product
-        }
+        customerPurchase.product = products[indexPath.row]
+        customerPurchase.delegate = self
         present(UINavigationController(rootViewController: customerPurchase), animated: true, completion: nil)
     }
     

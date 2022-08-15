@@ -23,4 +23,28 @@ final class CoreDataManager {
         })
         return container
     }()
+    
+    func cancelPendingOrder(item: Order) {
+        let order = item
+        
+        order.status = "cancelled"
+        
+        do {
+            try persistentContainer.viewContext.save()
+        } catch {
+            print("Unable to update pending order, \(error)")
+        }
+    }
+    
+    func completePendingOrder(item: Order) {
+        let order = item
+        
+        order.status = "completed"
+        
+        do {
+            try persistentContainer.viewContext.save()
+        } catch {
+            print("Unable to update pending order, \(error)")
+        }
+    }
 }

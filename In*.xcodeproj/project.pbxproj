@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1771DB4128A9391100254C2F /* PendingOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771DB4028A9391100254C2F /* PendingOrderViewController.swift */; };
+		1771DB4328A939A200254C2F /* CompletedOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771DB4228A939A200254C2F /* CompletedOrderViewController.swift */; };
 		1771E6DA289D619200AAFC78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771E6D9289D619200AAFC78 /* AppDelegate.swift */; };
 		1771E6DC289D619200AAFC78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771E6DB289D619200AAFC78 /* SceneDelegate.swift */; };
 		1771E6DE289D619200AAFC78 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771E6DD289D619200AAFC78 /* ProductViewController.swift */; };
@@ -17,6 +19,12 @@
 		1771E6F3289D7BE500AAFC78 /* In.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1771E6F1289D7BE500AAFC78 /* In.xcdatamodeld */; };
 		177CC81E289DAA5C0036F1FF /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177CC81D289DAA5C0036F1FF /* ProductDetailViewController.swift */; };
 		177CC820289DAE950036F1FF /* PurchaseProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177CC81F289DAE950036F1FF /* PurchaseProductViewController.swift */; };
+		178367B628A9B7410081F48E /* IGListDiffKit in Frameworks */ = {isa = PBXBuildFile; productRef = 178367B528A9B7410081F48E /* IGListDiffKit */; };
+		178367B828A9B7410081F48E /* IGListKit in Frameworks */ = {isa = PBXBuildFile; productRef = 178367B728A9B7410081F48E /* IGListKit */; };
+		178367BA28A9B7410081F48E /* IGListSwiftKit in Frameworks */ = {isa = PBXBuildFile; productRef = 178367B928A9B7410081F48E /* IGListSwiftKit */; };
+		178367BC28AA071C0081F48E /* PurchasedProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178367BB28AA071C0081F48E /* PurchasedProductViewController.swift */; };
+		178367C028AA08FE0081F48E /* PurchasedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178367BF28AA08FE0081F48E /* PurchasedCollectionViewCell.swift */; };
+		178367C228AA0A100081F48E /* PurchasedProductSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178367C128AA0A100081F48E /* PurchasedProductSectionController.swift */; };
 		178A365128A80738007924AC /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A365028A80738007924AC /* Extension+UITextField.swift */; };
 		178A365328A81BE7007924AC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A365228A81BE7007924AC /* LoginViewController.swift */; };
 		178A365528A81BF1007924AC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A365428A81BF1007924AC /* SignUpViewController.swift */; };
@@ -25,9 +33,12 @@
 		17A50ADD28A5F91D00402A72 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A50ADC28A5F91D00402A72 /* DashboardViewController.swift */; };
 		17C13B0C28A56C88008B49FC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C13B0B28A56C88008B49FC /* CoreDataManager.swift */; };
 		17C5C6E428A6507A0009DBF0 /* Extension+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C5C6E328A6507A0009DBF0 /* Extension+UITableView.swift */; };
+		17D5BECF28A8F5DB0052230A /* SimpleCheckbox in Frameworks */ = {isa = PBXBuildFile; productRef = 17D5BECE28A8F5DB0052230A /* SimpleCheckbox */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1771DB4028A9391100254C2F /* PendingOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingOrderViewController.swift; sourceTree = "<group>"; };
+		1771DB4228A939A200254C2F /* CompletedOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedOrderViewController.swift; sourceTree = "<group>"; };
 		1771E6D6289D619200AAFC78 /* In*.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "In*.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1771E6D9289D619200AAFC78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1771E6DB289D619200AAFC78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +51,9 @@
 		1771E6F2289D7BE500AAFC78 /* In.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = In.xcdatamodel; sourceTree = "<group>"; };
 		177CC81D289DAA5C0036F1FF /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		177CC81F289DAE950036F1FF /* PurchaseProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseProductViewController.swift; sourceTree = "<group>"; };
+		178367BB28AA071C0081F48E /* PurchasedProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedProductViewController.swift; sourceTree = "<group>"; };
+		178367BF28AA08FE0081F48E /* PurchasedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedCollectionViewCell.swift; sourceTree = "<group>"; };
+		178367C128AA0A100081F48E /* PurchasedProductSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedProductSectionController.swift; sourceTree = "<group>"; };
 		178A365028A80738007924AC /* Extension+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITextField.swift"; sourceTree = "<group>"; };
 		178A365228A81BE7007924AC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		178A365428A81BF1007924AC /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +69,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				178367B628A9B7410081F48E /* IGListDiffKit in Frameworks */,
+				178367B828A9B7410081F48E /* IGListKit in Frameworks */,
+				17D5BECF28A8F5DB0052230A /* SimpleCheckbox in Frameworks */,
+				178367BA28A9B7410081F48E /* IGListSwiftKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +111,23 @@
 			path = "In*";
 			sourceTree = "<group>";
 		};
+		178367BD28AA08BC0081F48E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				178367BE28AA08D00081F48E /* CollectionViewCell */,
+				17D5BECB28A8E8A40052230A /* TableViewCell */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		178367BE28AA08D00081F48E /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				178367BF28AA08FE0081F48E /* PurchasedCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
 		17C5C6E228A6503F0009DBF0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +141,7 @@
 		17D5BEC828A8E85E0052230A /* TabItemViewController */ = {
 			isa = PBXGroup;
 			children = (
+				17A50ADA28A5F7D700402A72 /* TabBarViewController.swift */,
 				1771E6DD289D619200AAFC78 /* ProductViewController.swift */,
 				17A50ADC28A5F91D00402A72 /* DashboardViewController.swift */,
 			);
@@ -120,33 +156,36 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		17D5BECA28A8E89B0052230A /* Components */ = {
+		17D5BECA28A8E89B0052230A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				17D5BECB28A8E8A40052230A /* CustomTableViewCell */,
 			);
-			path = Components;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
-		17D5BECB28A8E8A40052230A /* CustomTableViewCell */ = {
+		17D5BECB28A8E8A40052230A /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				1771E6ED289D747000AAFC78 /* InventoryTableViewCell.swift */,
 				1771E6EE289D747000AAFC78 /* InventoryTableViewCell.xib */,
 			);
-			path = CustomTableViewCell;
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		17D5BECC28A8E8BE0052230A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				178367BD28AA08BC0081F48E /* Components */,
 				17D5BEC828A8E85E0052230A /* TabItemViewController */,
-				17D5BECA28A8E89B0052230A /* Components */,
+				17D5BECA28A8E89B0052230A /* ViewController */,
 				178A365228A81BE7007924AC /* LoginViewController.swift */,
+				1771DB4028A9391100254C2F /* PendingOrderViewController.swift */,
 				177CC81D289DAA5C0036F1FF /* ProductDetailViewController.swift */,
-				17A50ADA28A5F7D700402A72 /* TabBarViewController.swift */,
 				17A50AD828A5835000402A72 /* NewProductViewController.swift */,
 				177CC81F289DAE950036F1FF /* PurchaseProductViewController.swift */,
+				1771DB4228A939A200254C2F /* CompletedOrderViewController.swift */,
+				178367BB28AA071C0081F48E /* PurchasedProductViewController.swift */,
+				178367C128AA0A100081F48E /* PurchasedProductSectionController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,6 +207,10 @@
 			);
 			name = "In*";
 			packageProductDependencies = (
+				17D5BECE28A8F5DB0052230A /* SimpleCheckbox */,
+				178367B528A9B7410081F48E /* IGListDiffKit */,
+				178367B728A9B7410081F48E /* IGListKit */,
+				178367B928A9B7410081F48E /* IGListSwiftKit */,
 			);
 			productName = "In*";
 			productReference = 1771E6D6289D619200AAFC78 /* In*.app */;
@@ -198,6 +241,8 @@
 			);
 			mainGroup = 1771E6CD289D619200AAFC78;
 			packageReferences = (
+				17D5BECD28A8F5DB0052230A /* XCRemoteSwiftPackageReference "SimpleCheckbox" */,
+				178367B428A9B7410081F48E /* XCRemoteSwiftPackageReference "IGListKit" */,
 			);
 			productRefGroup = 1771E6D7289D619200AAFC78 /* Products */;
 			projectDirPath = "";
@@ -229,11 +274,15 @@
 				178A365328A81BE7007924AC /* LoginViewController.swift in Sources */,
 				178A365128A80738007924AC /* Extension+UITextField.swift in Sources */,
 				1771E6EF289D747000AAFC78 /* InventoryTableViewCell.swift in Sources */,
+				178367C028AA08FE0081F48E /* PurchasedCollectionViewCell.swift in Sources */,
 				177CC820289DAE950036F1FF /* PurchaseProductViewController.swift in Sources */,
+				178367BC28AA071C0081F48E /* PurchasedProductViewController.swift in Sources */,
 				1771E6DE289D619200AAFC78 /* ProductViewController.swift in Sources */,
 				17A50AD928A5835000402A72 /* NewProductViewController.swift in Sources */,
+				1771DB4128A9391100254C2F /* PendingOrderViewController.swift in Sources */,
 				1771E6DA289D619200AAFC78 /* AppDelegate.swift in Sources */,
 				1771E6F3289D7BE500AAFC78 /* In.xcdatamodeld in Sources */,
+				1771DB4328A939A200254C2F /* CompletedOrderViewController.swift in Sources */,
 				1771E6DC289D619200AAFC78 /* SceneDelegate.swift in Sources */,
 				178A365528A81BF1007924AC /* SignUpViewController.swift in Sources */,
 				17C5C6E428A6507A0009DBF0 /* Extension+UITableView.swift in Sources */,
@@ -241,6 +290,7 @@
 				17A50ADD28A5F91D00402A72 /* DashboardViewController.swift in Sources */,
 				17A50ADB28A5F7D700402A72 /* TabBarViewController.swift in Sources */,
 				177CC81E289DAA5C0036F1FF /* ProductDetailViewController.swift in Sources */,
+				178367C228AA0A100081F48E /* PurchasedProductSectionController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +498,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		178367B428A9B7410081F48E /* XCRemoteSwiftPackageReference "IGListKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Instagram/IGListKit";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		17D5BECD28A8F5DB0052230A /* XCRemoteSwiftPackageReference "SimpleCheckbox" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BeauNouvelle/SimpleCheckbox.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		178367B528A9B7410081F48E /* IGListDiffKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 178367B428A9B7410081F48E /* XCRemoteSwiftPackageReference "IGListKit" */;
+			productName = IGListDiffKit;
+		};
+		178367B728A9B7410081F48E /* IGListKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 178367B428A9B7410081F48E /* XCRemoteSwiftPackageReference "IGListKit" */;
+			productName = IGListKit;
+		};
+		178367B928A9B7410081F48E /* IGListSwiftKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 178367B428A9B7410081F48E /* XCRemoteSwiftPackageReference "IGListKit" */;
+			productName = IGListSwiftKit;
+		};
+		17D5BECE28A8F5DB0052230A /* SimpleCheckbox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17D5BECD28A8F5DB0052230A /* XCRemoteSwiftPackageReference "SimpleCheckbox" */;
+			productName = SimpleCheckbox;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		1771E6F1289D7BE500AAFC78 /* In.xcdatamodeld */ = {

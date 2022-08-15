@@ -107,7 +107,7 @@ class NewProductViewController: UIViewController {
         let productData = Product(context: managedObjectContext)
         
         productData.name = nameTextField.text ?? ""
-        productData.quantity = 2
+        productData.quantity = Int16(quantityTextField.text ?? "0") ?? 0
         productData.brand = brandTextField.text ?? ""
         productData.type = typeTextField.text ?? ""
         
