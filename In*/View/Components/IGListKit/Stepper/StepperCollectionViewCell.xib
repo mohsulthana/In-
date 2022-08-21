@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="StepperCollectionViewCell" customModule="In_" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="42"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="400" height="42"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="g1N-n6-nSt">
+                        <rect key="frame" x="290" y="4" width="94" height="32"/>
+                        <connections>
+                            <action selector="stepperValueChanged:" destination="gTV-IL-0wX" eventType="valueChanged" id="JJH-aD-CeS"/>
+                        </connections>
+                    </stepper>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhU-w4-CQ7">
+                        <rect key="frame" x="16" y="10.5" width="41.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QLK-tO-wga">
+                        <rect key="frame" x="234" y="4" width="48" height="34"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="48" id="mN5-ij-8cw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="PhU-w4-CQ7" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="FvM-Zp-UDO"/>
+                <constraint firstItem="g1N-n6-nSt" firstAttribute="leading" secondItem="QLK-tO-wga" secondAttribute="trailing" constant="8" id="Qen-RP-omJ"/>
+                <constraint firstItem="QLK-tO-wga" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="VUM-WL-Ymr"/>
+                <constraint firstItem="g1N-n6-nSt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="dzp-w4-yIV"/>
+                <constraint firstAttribute="trailing" secondItem="g1N-n6-nSt" secondAttribute="trailing" constant="16" id="lAV-aY-fuE"/>
+                <constraint firstItem="PhU-w4-CQ7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="x7q-r2-Mqw"/>
+            </constraints>
+            <connections>
+                <outlet property="stepper" destination="g1N-n6-nSt" id="tcW-87-CUX"/>
+                <outlet property="stepperLabel" destination="PhU-w4-CQ7" id="aTW-am-MKh"/>
+                <outlet property="stepperValueTextField" destination="QLK-tO-wga" id="E9F-1T-91u"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="93.75"/>
+        </collectionViewCell>
+    </objects>
+</document>

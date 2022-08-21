@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PrepaidBankCollectionViewCell" customModule="In_" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="76"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="400" height="76"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bank 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GmI-do-OLj">
+                        <rect key="frame" x="16" y="42" width="368" height="34"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bank 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uW7-kK-lbf">
+                        <rect key="frame" x="16" y="4" width="368" height="34"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="uW7-kK-lbf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="3gP-BU-eAv"/>
+                <constraint firstItem="uW7-kK-lbf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="BP0-aF-Eb7"/>
+                <constraint firstAttribute="trailing" secondItem="GmI-do-OLj" secondAttribute="trailing" constant="16" id="XcC-dT-pxE"/>
+                <constraint firstAttribute="trailing" secondItem="uW7-kK-lbf" secondAttribute="trailing" constant="16" id="fdj-th-b9q"/>
+                <constraint firstItem="GmI-do-OLj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="ngN-Xe-5lZ"/>
+                <constraint firstItem="GmI-do-OLj" firstAttribute="top" secondItem="uW7-kK-lbf" secondAttribute="bottom" constant="4" id="ql9-WQ-hKn"/>
+            </constraints>
+            <size key="customSize" width="400" height="136"/>
+            <connections>
+                <outlet property="firstBankTextField" destination="uW7-kK-lbf" id="7Q7-5s-sBq"/>
+                <outlet property="secondBankTextField" destination="GmI-do-OLj" id="C24-lj-ZGb"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="72.321428571428569"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1735A9FA28B2634300F6D3C3 /* TextFieldSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1735A9F928B2634300F6D3C3 /* TextFieldSectionController.swift */; };
+		1735A9FD28B263D700F6D3C3 /* TextfieldCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1735A9FB28B263D700F6D3C3 /* TextfieldCollectionViewCell.swift */; };
+		1735A9FE28B263D700F6D3C3 /* TextfieldCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1735A9FC28B263D700F6D3C3 /* TextfieldCollectionViewCell.xib */; };
+		1735AA0728B2678900F6D3C3 /* DropdownSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1735AA0628B2678900F6D3C3 /* DropdownSectionController.swift */; };
+		1735AA0B28B2680200F6D3C3 /* StepperCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1735AA0928B2680200F6D3C3 /* StepperCollectionViewCell.swift */; };
+		1735AA0C28B2680200F6D3C3 /* StepperCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1735AA0A28B2680200F6D3C3 /* StepperCollectionViewCell.xib */; };
+		1735AA0E28B2693100F6D3C3 /* StepperSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1735AA0D28B2693100F6D3C3 /* StepperSectionController.swift */; };
+		1735AA1128B26AEA00F6D3C3 /* DropdownCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1735AA0F28B26AEA00F6D3C3 /* DropdownCollectionViewCell.swift */; };
+		1735AA1228B26AEA00F6D3C3 /* DropdownCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1735AA1028B26AEA00F6D3C3 /* DropdownCollectionViewCell.xib */; };
+		1735AA1528B26BF200F6D3C3 /* DeliveryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1735AA1428B26BF200F6D3C3 /* DeliveryType.swift */; };
+		1735AA1B28B2764C00F6D3C3 /* UIMagicDropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 1735AA1A28B2764C00F6D3C3 /* UIMagicDropDown */; };
 		1771DB4128A9391100254C2F /* PendingOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771DB4028A9391100254C2F /* PendingOrderViewController.swift */; };
 		1771DB4328A939A200254C2F /* CompletedOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771DB4228A939A200254C2F /* CompletedOrderViewController.swift */; };
 		1771E6DA289D619200AAFC78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771E6D9289D619200AAFC78 /* AppDelegate.swift */; };
@@ -17,14 +28,22 @@
 		1771E6EF289D747000AAFC78 /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771E6ED289D747000AAFC78 /* InventoryTableViewCell.swift */; };
 		1771E6F0289D747000AAFC78 /* InventoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1771E6EE289D747000AAFC78 /* InventoryTableViewCell.xib */; };
 		1771E6F3289D7BE500AAFC78 /* In.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1771E6F1289D7BE500AAFC78 /* In.xcdatamodeld */; };
+		17748AC728B0F2870037D25D /* PrepaidBankCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17748AC528B0F2870037D25D /* PrepaidBankCollectionViewCell.swift */; };
+		17748AC828B0F2870037D25D /* PrepaidBankCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17748AC628B0F2870037D25D /* PrepaidBankCollectionViewCell.xib */; };
+		1775548C28B21142006537A3 /* SwitchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1775548A28B21142006537A3 /* SwitchCollectionViewCell.swift */; };
+		1775548D28B21142006537A3 /* SwitchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1775548B28B21142006537A3 /* SwitchCollectionViewCell.xib */; };
+		1775548F28B211AF006537A3 /* SwitchSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1775548E28B211AF006537A3 /* SwitchSectionController.swift */; };
+		1775549128B2131A006537A3 /* EmptySectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1775549028B2131A006537A3 /* EmptySectionController.swift */; };
+		1775549328B2137C006537A3 /* PurchasedAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1775549228B2137C006537A3 /* PurchasedAdapter.swift */; };
+		1775549628B213E5006537A3 /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1775549528B213E5006537A3 /* SwifterSwift */; };
+		1775549828B21450006537A3 /* Extension+ListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1775549728B21450006537A3 /* Extension+ListAdapter.swift */; };
 		177CC81E289DAA5C0036F1FF /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177CC81D289DAA5C0036F1FF /* ProductDetailViewController.swift */; };
-		177CC820289DAE950036F1FF /* PurchaseProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177CC81F289DAE950036F1FF /* PurchaseProductViewController.swift */; };
+		177CC820289DAE950036F1FF /* OldPurchaseProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177CC81F289DAE950036F1FF /* OldPurchaseProductViewController.swift */; };
 		178367B628A9B7410081F48E /* IGListDiffKit in Frameworks */ = {isa = PBXBuildFile; productRef = 178367B528A9B7410081F48E /* IGListDiffKit */; };
 		178367B828A9B7410081F48E /* IGListKit in Frameworks */ = {isa = PBXBuildFile; productRef = 178367B728A9B7410081F48E /* IGListKit */; };
 		178367BA28A9B7410081F48E /* IGListSwiftKit in Frameworks */ = {isa = PBXBuildFile; productRef = 178367B928A9B7410081F48E /* IGListSwiftKit */; };
-		178367BC28AA071C0081F48E /* PurchasedProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178367BB28AA071C0081F48E /* PurchasedProductViewController.swift */; };
-		178367C028AA08FE0081F48E /* PurchasedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178367BF28AA08FE0081F48E /* PurchasedCollectionViewCell.swift */; };
-		178367C228AA0A100081F48E /* PurchasedProductSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178367C128AA0A100081F48E /* PurchasedProductSectionController.swift */; };
+		178367BC28AA071C0081F48E /* PurchaseProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178367BB28AA071C0081F48E /* PurchaseProductViewController.swift */; };
+		178367C228AA0A100081F48E /* PrepaidBankSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178367C128AA0A100081F48E /* PrepaidBankSectionController.swift */; };
 		178A365128A80738007924AC /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A365028A80738007924AC /* Extension+UITextField.swift */; };
 		178A365328A81BE7007924AC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A365228A81BE7007924AC /* LoginViewController.swift */; };
 		178A365528A81BF1007924AC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A365428A81BF1007924AC /* SignUpViewController.swift */; };
@@ -37,6 +56,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1735A9F928B2634300F6D3C3 /* TextFieldSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldSectionController.swift; sourceTree = "<group>"; };
+		1735A9FB28B263D700F6D3C3 /* TextfieldCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextfieldCollectionViewCell.swift; sourceTree = "<group>"; };
+		1735A9FC28B263D700F6D3C3 /* TextfieldCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextfieldCollectionViewCell.xib; sourceTree = "<group>"; };
+		1735AA0628B2678900F6D3C3 /* DropdownSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownSectionController.swift; sourceTree = "<group>"; };
+		1735AA0928B2680200F6D3C3 /* StepperCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperCollectionViewCell.swift; sourceTree = "<group>"; };
+		1735AA0A28B2680200F6D3C3 /* StepperCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepperCollectionViewCell.xib; sourceTree = "<group>"; };
+		1735AA0D28B2693100F6D3C3 /* StepperSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperSectionController.swift; sourceTree = "<group>"; };
+		1735AA0F28B26AEA00F6D3C3 /* DropdownCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownCollectionViewCell.swift; sourceTree = "<group>"; };
+		1735AA1028B26AEA00F6D3C3 /* DropdownCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropdownCollectionViewCell.xib; sourceTree = "<group>"; };
+		1735AA1428B26BF200F6D3C3 /* DeliveryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryType.swift; sourceTree = "<group>"; };
 		1771DB4028A9391100254C2F /* PendingOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingOrderViewController.swift; sourceTree = "<group>"; };
 		1771DB4228A939A200254C2F /* CompletedOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedOrderViewController.swift; sourceTree = "<group>"; };
 		1771E6D6289D619200AAFC78 /* In*.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "In*.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,11 +78,18 @@
 		1771E6ED289D747000AAFC78 /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewCell.swift; sourceTree = "<group>"; };
 		1771E6EE289D747000AAFC78 /* InventoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InventoryTableViewCell.xib; sourceTree = "<group>"; };
 		1771E6F2289D7BE500AAFC78 /* In.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = In.xcdatamodel; sourceTree = "<group>"; };
+		17748AC528B0F2870037D25D /* PrepaidBankCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepaidBankCollectionViewCell.swift; sourceTree = "<group>"; };
+		17748AC628B0F2870037D25D /* PrepaidBankCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrepaidBankCollectionViewCell.xib; sourceTree = "<group>"; };
+		1775548A28B21142006537A3 /* SwitchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCollectionViewCell.swift; sourceTree = "<group>"; };
+		1775548B28B21142006537A3 /* SwitchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchCollectionViewCell.xib; sourceTree = "<group>"; };
+		1775548E28B211AF006537A3 /* SwitchSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchSectionController.swift; sourceTree = "<group>"; };
+		1775549028B2131A006537A3 /* EmptySectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySectionController.swift; sourceTree = "<group>"; };
+		1775549228B2137C006537A3 /* PurchasedAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedAdapter.swift; sourceTree = "<group>"; };
+		1775549728B21450006537A3 /* Extension+ListAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ListAdapter.swift"; sourceTree = "<group>"; };
 		177CC81D289DAA5C0036F1FF /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
-		177CC81F289DAE950036F1FF /* PurchaseProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseProductViewController.swift; sourceTree = "<group>"; };
-		178367BB28AA071C0081F48E /* PurchasedProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedProductViewController.swift; sourceTree = "<group>"; };
-		178367BF28AA08FE0081F48E /* PurchasedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedCollectionViewCell.swift; sourceTree = "<group>"; };
-		178367C128AA0A100081F48E /* PurchasedProductSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedProductSectionController.swift; sourceTree = "<group>"; };
+		177CC81F289DAE950036F1FF /* OldPurchaseProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldPurchaseProductViewController.swift; sourceTree = "<group>"; };
+		178367BB28AA071C0081F48E /* PurchaseProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseProductViewController.swift; sourceTree = "<group>"; };
+		178367C128AA0A100081F48E /* PrepaidBankSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepaidBankSectionController.swift; sourceTree = "<group>"; };
 		178A365028A80738007924AC /* Extension+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITextField.swift"; sourceTree = "<group>"; };
 		178A365228A81BE7007924AC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		178A365428A81BF1007924AC /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +108,8 @@
 				178367B628A9B7410081F48E /* IGListDiffKit in Frameworks */,
 				178367B828A9B7410081F48E /* IGListKit in Frameworks */,
 				17D5BECF28A8F5DB0052230A /* SimpleCheckbox in Frameworks */,
+				1735AA1B28B2764C00F6D3C3 /* UIMagicDropDown in Frameworks */,
+				1775549628B213E5006537A3 /* SwifterSwift in Frameworks */,
 				178367BA28A9B7410081F48E /* IGListSwiftKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,6 +117,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1735AA0228B2674B00F6D3C3 /* IGListKit */ = {
+			isa = PBXGroup;
+			children = (
+				1735AA0828B267EE00F6D3C3 /* Stepper */,
+				1735AA0528B2677000F6D3C3 /* Dropdown */,
+				1735AA0428B2676500F6D3C3 /* Textfield */,
+				1735AA0328B2675600F6D3C3 /* Switch */,
+			);
+			path = IGListKit;
+			sourceTree = "<group>";
+		};
+		1735AA0328B2675600F6D3C3 /* Switch */ = {
+			isa = PBXGroup;
+			children = (
+				1775548E28B211AF006537A3 /* SwitchSectionController.swift */,
+				1775548A28B21142006537A3 /* SwitchCollectionViewCell.swift */,
+				1775548B28B21142006537A3 /* SwitchCollectionViewCell.xib */,
+			);
+			path = Switch;
+			sourceTree = "<group>";
+		};
+		1735AA0428B2676500F6D3C3 /* Textfield */ = {
+			isa = PBXGroup;
+			children = (
+				1735A9F928B2634300F6D3C3 /* TextFieldSectionController.swift */,
+				1735A9FB28B263D700F6D3C3 /* TextfieldCollectionViewCell.swift */,
+				1735A9FC28B263D700F6D3C3 /* TextfieldCollectionViewCell.xib */,
+			);
+			path = Textfield;
+			sourceTree = "<group>";
+		};
+		1735AA0528B2677000F6D3C3 /* Dropdown */ = {
+			isa = PBXGroup;
+			children = (
+				1735AA0628B2678900F6D3C3 /* DropdownSectionController.swift */,
+				1735AA0F28B26AEA00F6D3C3 /* DropdownCollectionViewCell.swift */,
+				1735AA1028B26AEA00F6D3C3 /* DropdownCollectionViewCell.xib */,
+			);
+			path = Dropdown;
+			sourceTree = "<group>";
+		};
+		1735AA0828B267EE00F6D3C3 /* Stepper */ = {
+			isa = PBXGroup;
+			children = (
+				1735AA0928B2680200F6D3C3 /* StepperCollectionViewCell.swift */,
+				1735AA0A28B2680200F6D3C3 /* StepperCollectionViewCell.xib */,
+				1735AA0D28B2693100F6D3C3 /* StepperSectionController.swift */,
+			);
+			path = Stepper;
+			sourceTree = "<group>";
+		};
+		1735AA1328B26BE700F6D3C3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1735AA1428B26BF200F6D3C3 /* DeliveryType.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		1771E6CD289D619200AAFC78 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +195,7 @@
 		1771E6D8289D619200AAFC78 /* In* */ = {
 			isa = PBXGroup;
 			children = (
+				1735AA1328B26BE700F6D3C3 /* Model */,
 				17D5BECC28A8E8BE0052230A /* View */,
 				17D5BEC928A8E8840052230A /* Manager */,
 				17C5C6E228A6503F0009DBF0 /* Extension */,
@@ -111,9 +209,18 @@
 			path = "In*";
 			sourceTree = "<group>";
 		};
+		17748AC928B0F7700037D25D /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				1775549228B2137C006537A3 /* PurchasedAdapter.swift */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
 		178367BD28AA08BC0081F48E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				1735AA0228B2674B00F6D3C3 /* IGListKit */,
 				178367BE28AA08D00081F48E /* CollectionViewCell */,
 				17D5BECB28A8E8A40052230A /* TableViewCell */,
 			);
@@ -123,7 +230,8 @@
 		178367BE28AA08D00081F48E /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				178367BF28AA08FE0081F48E /* PurchasedCollectionViewCell.swift */,
+				17748AC528B0F2870037D25D /* PrepaidBankCollectionViewCell.swift */,
+				17748AC628B0F2870037D25D /* PrepaidBankCollectionViewCell.xib */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -134,6 +242,7 @@
 				17C5C6E328A6507A0009DBF0 /* Extension+UITableView.swift */,
 				178A365028A80738007924AC /* Extension+UITextField.swift */,
 				178A365428A81BF1007924AC /* SignUpViewController.swift */,
+				1775549728B21450006537A3 /* Extension+ListAdapter.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -175,6 +284,7 @@
 		17D5BECC28A8E8BE0052230A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				17748AC928B0F7700037D25D /* Adapter */,
 				178367BD28AA08BC0081F48E /* Components */,
 				17D5BEC828A8E85E0052230A /* TabItemViewController */,
 				17D5BECA28A8E89B0052230A /* ViewController */,
@@ -182,10 +292,11 @@
 				1771DB4028A9391100254C2F /* PendingOrderViewController.swift */,
 				177CC81D289DAA5C0036F1FF /* ProductDetailViewController.swift */,
 				17A50AD828A5835000402A72 /* NewProductViewController.swift */,
-				177CC81F289DAE950036F1FF /* PurchaseProductViewController.swift */,
+				177CC81F289DAE950036F1FF /* OldPurchaseProductViewController.swift */,
 				1771DB4228A939A200254C2F /* CompletedOrderViewController.swift */,
-				178367BB28AA071C0081F48E /* PurchasedProductViewController.swift */,
-				178367C128AA0A100081F48E /* PurchasedProductSectionController.swift */,
+				178367BB28AA071C0081F48E /* PurchaseProductViewController.swift */,
+				1775549028B2131A006537A3 /* EmptySectionController.swift */,
+				178367C128AA0A100081F48E /* PrepaidBankSectionController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,6 +322,8 @@
 				178367B528A9B7410081F48E /* IGListDiffKit */,
 				178367B728A9B7410081F48E /* IGListKit */,
 				178367B928A9B7410081F48E /* IGListSwiftKit */,
+				1775549528B213E5006537A3 /* SwifterSwift */,
+				1735AA1A28B2764C00F6D3C3 /* UIMagicDropDown */,
 			);
 			productName = "In*";
 			productReference = 1771E6D6289D619200AAFC78 /* In*.app */;
@@ -243,6 +356,8 @@
 			packageReferences = (
 				17D5BECD28A8F5DB0052230A /* XCRemoteSwiftPackageReference "SimpleCheckbox" */,
 				178367B428A9B7410081F48E /* XCRemoteSwiftPackageReference "IGListKit" */,
+				1775549428B213E5006537A3 /* XCRemoteSwiftPackageReference "SwifterSwift" */,
+				1735AA1928B2764C00F6D3C3 /* XCRemoteSwiftPackageReference "UIMagicDropDown" */,
 			);
 			productRefGroup = 1771E6D7289D619200AAFC78 /* Products */;
 			projectDirPath = "";
@@ -260,7 +375,12 @@
 			files = (
 				1771E6F0289D747000AAFC78 /* InventoryTableViewCell.xib in Resources */,
 				1771E6E6289D619500AAFC78 /* LaunchScreen.storyboard in Resources */,
+				1735A9FE28B263D700F6D3C3 /* TextfieldCollectionViewCell.xib in Resources */,
+				1735AA1228B26AEA00F6D3C3 /* DropdownCollectionViewCell.xib in Resources */,
+				17748AC828B0F2870037D25D /* PrepaidBankCollectionViewCell.xib in Resources */,
+				1775548D28B21142006537A3 /* SwitchCollectionViewCell.xib in Resources */,
 				1771E6E3289D619500AAFC78 /* Assets.xcassets in Resources */,
+				1735AA0C28B2680200F6D3C3 /* StepperCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,26 +391,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1735A9FA28B2634300F6D3C3 /* TextFieldSectionController.swift in Sources */,
 				178A365328A81BE7007924AC /* LoginViewController.swift in Sources */,
+				1775549328B2137C006537A3 /* PurchasedAdapter.swift in Sources */,
 				178A365128A80738007924AC /* Extension+UITextField.swift in Sources */,
 				1771E6EF289D747000AAFC78 /* InventoryTableViewCell.swift in Sources */,
-				178367C028AA08FE0081F48E /* PurchasedCollectionViewCell.swift in Sources */,
-				177CC820289DAE950036F1FF /* PurchaseProductViewController.swift in Sources */,
-				178367BC28AA071C0081F48E /* PurchasedProductViewController.swift in Sources */,
+				1775548F28B211AF006537A3 /* SwitchSectionController.swift in Sources */,
+				177CC820289DAE950036F1FF /* OldPurchaseProductViewController.swift in Sources */,
+				178367BC28AA071C0081F48E /* PurchaseProductViewController.swift in Sources */,
 				1771E6DE289D619200AAFC78 /* ProductViewController.swift in Sources */,
 				17A50AD928A5835000402A72 /* NewProductViewController.swift in Sources */,
 				1771DB4128A9391100254C2F /* PendingOrderViewController.swift in Sources */,
 				1771E6DA289D619200AAFC78 /* AppDelegate.swift in Sources */,
 				1771E6F3289D7BE500AAFC78 /* In.xcdatamodeld in Sources */,
+				1735AA1128B26AEA00F6D3C3 /* DropdownCollectionViewCell.swift in Sources */,
+				17748AC728B0F2870037D25D /* PrepaidBankCollectionViewCell.swift in Sources */,
 				1771DB4328A939A200254C2F /* CompletedOrderViewController.swift in Sources */,
 				1771E6DC289D619200AAFC78 /* SceneDelegate.swift in Sources */,
+				1775549828B21450006537A3 /* Extension+ListAdapter.swift in Sources */,
 				178A365528A81BF1007924AC /* SignUpViewController.swift in Sources */,
+				1735AA1528B26BF200F6D3C3 /* DeliveryType.swift in Sources */,
+				1775548C28B21142006537A3 /* SwitchCollectionViewCell.swift in Sources */,
+				1735AA0E28B2693100F6D3C3 /* StepperSectionController.swift in Sources */,
 				17C5C6E428A6507A0009DBF0 /* Extension+UITableView.swift in Sources */,
+				1735AA0B28B2680200F6D3C3 /* StepperCollectionViewCell.swift in Sources */,
+				1735AA0728B2678900F6D3C3 /* DropdownSectionController.swift in Sources */,
 				17C13B0C28A56C88008B49FC /* CoreDataManager.swift in Sources */,
+				1775549128B2131A006537A3 /* EmptySectionController.swift in Sources */,
 				17A50ADD28A5F91D00402A72 /* DashboardViewController.swift in Sources */,
+				1735A9FD28B263D700F6D3C3 /* TextfieldCollectionViewCell.swift in Sources */,
 				17A50ADB28A5F7D700402A72 /* TabBarViewController.swift in Sources */,
 				177CC81E289DAA5C0036F1FF /* ProductDetailViewController.swift in Sources */,
-				178367C228AA0A100081F48E /* PurchasedProductSectionController.swift in Sources */,
+				178367C228AA0A100081F48E /* PrepaidBankSectionController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +632,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1735AA1928B2764C00F6D3C3 /* XCRemoteSwiftPackageReference "UIMagicDropDown" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CodeNationDev/UIMagicDropDown.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		1775549428B213E5006537A3 /* XCRemoteSwiftPackageReference "SwifterSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwifterSwift/SwifterSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		178367B428A9B7410081F48E /* XCRemoteSwiftPackageReference "IGListKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Instagram/IGListKit";
@@ -519,6 +667,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1735AA1A28B2764C00F6D3C3 /* UIMagicDropDown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1735AA1928B2764C00F6D3C3 /* XCRemoteSwiftPackageReference "UIMagicDropDown" */;
+			productName = UIMagicDropDown;
+		};
+		1775549528B213E5006537A3 /* SwifterSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1775549428B213E5006537A3 /* XCRemoteSwiftPackageReference "SwifterSwift" */;
+			productName = SwifterSwift;
+		};
 		178367B528A9B7410081F48E /* IGListDiffKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 178367B428A9B7410081F48E /* XCRemoteSwiftPackageReference "IGListKit" */;

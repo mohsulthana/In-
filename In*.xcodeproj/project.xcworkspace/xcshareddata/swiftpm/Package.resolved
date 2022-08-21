@@ -17,6 +17,24 @@
         "revision" : "96cf25c98bd8e595018df6a2466a9a1eb348fdb8",
         "version" : "2.3.0"
       }
+    },
+    {
+      "identity" : "swifterswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwifterSwift/SwifterSwift",
+      "state" : {
+        "revision" : "933f27d8e7fa0bf8200a5d6235e0de383b801126",
+        "version" : "5.3.0"
+      }
+    },
+    {
+      "identity" : "uimagicdropdown",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/CodeNationDev/UIMagicDropDown.git",
+      "state" : {
+        "revision" : "e2cc3855c2a09af938e6abd74924646ef12dd4d9",
+        "version" : "1.2.1"
+      }
     }
   ],
   "version" : 2

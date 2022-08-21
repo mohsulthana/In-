@@ -171,6 +171,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             cell.textLabel?.text = pendingOrder[indexPath.row].name
             cell.textLabel?.textColor = .darkText
+            cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         case 1:
             cell.textLabel?.text = completedItems[indexPath.row].name
             cell.textLabel?.textColor = .darkText
@@ -180,7 +181,6 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             break
         }
-        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         return cell
     }
     

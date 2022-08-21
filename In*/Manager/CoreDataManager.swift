@@ -25,8 +25,21 @@ final class CoreDataManager {
     }()
     
     func cancelPendingOrder(item: Order) {
-        let order = item
+//        let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
+//        let predicate = NSPredicate(format: "name == %@", item.name ?? "")
+//        fetchRequest.returnsObjectsAsFaults = false
+//        fetchRequest.predicate = predicate
+//        
+//        persistentContainer.viewContext.perform {
+//            do {
+//                let result = try fetchRequest.execute()
+//                result.first?.quantity += item.quantity
+//            } catch {
+//                print("Unable to Execute Fetch Request, \(error)")
+//            }
+//        }
         
+        let order = item
         order.status = "cancelled"
         
         do {
@@ -38,7 +51,6 @@ final class CoreDataManager {
     
     func completePendingOrder(item: Order) {
         let order = item
-        
         order.status = "completed"
         
         do {
