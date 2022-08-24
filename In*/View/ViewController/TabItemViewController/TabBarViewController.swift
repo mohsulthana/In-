@@ -13,7 +13,7 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         UITabBar.appearance().barTintColor = .systemBackground
-        tabBar.tintColor = .label
+        tabBar.tintColor = .primary
         setupVCs()
     }
     
@@ -29,6 +29,7 @@ class TabBarViewController: UITabBarController {
         navController.title = title
         navController.tabBarItem.title = title
         navController.tabBarItem.image = image
+        navController.tabBarItem.badgeColor = UIColor.primary
         return navController
     }
 }

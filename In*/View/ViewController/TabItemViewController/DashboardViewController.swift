@@ -8,6 +8,10 @@
 import UIKit
 import CoreData
 
+enum StatusOrder: String {
+    case pending, completed, cancelled
+}
+
 protocol RefreshDataProtocol {
     func reloadData()
 }
@@ -15,7 +19,7 @@ protocol RefreshDataProtocol {
 class DashboardViewController: UIViewController {
     let categoryItems = ["Pending", "Completed", "Cancelled"]
     
-    var pendingOrder: [Order] = []
+    var pendingItems: [Order] = []
     var completedItems: [Order] = []
     var cancelledItems: [Order] = []
     
@@ -23,7 +27,8 @@ class DashboardViewController: UIViewController {
         let control = UISegmentedControl(items: categoryItems)
         control.selectedSegmentIndex = 0
         control.backgroundColor = .lightGray
-        control.tintColor = .white
+        control.selectedSegmentTintColor = .primary
+        control.tintColor = .primary
         control.addTarget(self, action: #selector(segmentedControlChanged), for: .valueChanged)
         control.translatesAutoresizingMaskIntoConstraints = false
         return control
@@ -48,7 +53,7 @@ class DashboardViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(segmentedControl)
         title = "Order Reports"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.action, target: self, action: #selector(generateReport))
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.action, target: self, action: #selector(generateReport))
         setupTableView()
         setupConstraint()
     }
@@ -91,7 +96,7 @@ class DashboardViewController: UIViewController {
         CoreDataManager.shared.persistentContainer.viewContext.perform {
             do {
                 let result = try fetchRequest.execute()
-                self.pendingOrder = result
+                self.pendingItems = result
                 self.dashboardTableView.reloadData()
             } catch {
                 print("Unable to Execute Fetch Request, \(error)")
@@ -154,10 +159,25 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         var rows = 0
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            rows = pendingOrder.count
+            if pendingItems.count == 0 {
+                tableView.setEmptyMessage("Empty pending list. Go to product page and add some there")
+            } else {
+                tableView.restore()
+            }
+            rows = pendingItems.count
         case 1:
+            if completedItems.count == 0 {
+                tableView.setEmptyMessage("Empty completed list.")
+            } else {
+                tableView.restore()
+            }
             rows = completedItems.count
         case 2:
+            if cancelledItems.count == 0 {
+                tableView.setEmptyMessage("Empty cancelled list.")
+            } else {
+                tableView.restore()
+            }
             rows = cancelledItems.count
         default:
             break
@@ -169,8 +189,8 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            cell.textLabel?.text = pendingOrder[indexPath.row].name
-            cell.textLabel?.textColor = .darkText
+            cell.textLabel?.text = pendingItems[indexPath.row].name
+            cell.textLabel?.textColor = .primary
             cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         case 1:
             cell.textLabel?.text = completedItems[indexPath.row].name
@@ -193,7 +213,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
                     alert.dismiss(animated: true)
                 }))
                 alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { action in
-                    let pendingOrder = self.pendingOrder[indexPath.row]
+                    let pendingOrder = self.pendingItems[indexPath.row]
                     CoreDataManager.shared.completePendingOrder(item: pendingOrder)
                     self.fetchOrder()
                 }))
@@ -203,8 +223,8 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
             let cancelAction = UIContextualAction(style: .normal, title: "Cancel") { (_, _, completionHandler) in
                 let alert = UIAlertController(title: "Cancel Order", message: "Are you sure to cancel this order? This action cannot be reversed.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Yes, Cancel", style: .destructive, handler: { action in
-                    let pendingOrder = self.pendingOrder[indexPath.row]
-                    CoreDataManager.shared.cancelPendingOrder(item: pendingOrder)
+                    let pendingOrder = self.pendingItems[indexPath.row]
+                    CoreDataManager.shared.cancelPendingOrder(item: pendingOrder, product: pendingOrder.product ?? Product())
                     self.fetchOrder()
                 }))
                 alert.addAction(UIAlertAction(title: "Back", style: .cancel, handler: { action in
@@ -228,11 +248,26 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            let pendingOrderDetail = PendingOrderViewController()
-            pendingOrderDetail.title = "Pending Order"
-            pendingOrderDetail.order = pendingOrder[indexPath.row]
-            pendingOrderDetail.delegate = self
-            present(UINavigationController(rootViewController: pendingOrderDetail), animated: true, completion: nil)
+            let orderDetail = OrderDetailViewController()
+            orderDetail.title = "Pending Order"
+            orderDetail.order = pendingItems[indexPath.row]
+            orderDetail.delegate = self
+            orderDetail.status = .pending
+            present(UINavigationController(rootViewController: orderDetail), animated: true, completion: nil)
+        case 1:
+            let orderDetail = OrderDetailViewController()
+            orderDetail.title = "Completed Order"
+            orderDetail.order = completedItems[indexPath.row]
+            orderDetail.delegate = self
+            orderDetail.status = .completed
+            present(UINavigationController(rootViewController: orderDetail), animated: true, completion: nil)
+        case 2:
+            let orderDetail = OrderDetailViewController()
+            orderDetail.title = "Cancelled Order"
+            orderDetail.order = cancelledItems[indexPath.row]
+            orderDetail.delegate = self
+            orderDetail.status = .cancelled
+            present(UINavigationController(rootViewController: orderDetail), animated: true, completion: nil)
         default:
             break
         }

@@ -15,22 +15,25 @@ enum DeliveryMethod: String {
 
 protocol DropdownDelegate: AnyObject {
     func triggerChanges(_ item: String)
+    func dropdownExpanded(_ expanded: Bool)
 }
 
 class DropdownCollectionViewCell: UICollectionViewCell, UIMagicDropDownDelegate {
     weak var view: PurchaseProductViewController?
     weak var delegate: DropdownDelegate?
+    var expanded: Bool?
     
     func dropDownSelected(_ item: UIMagicDropdownData, _ sender: UIMagicDropdown) {
+        delegate?.dropdownExpanded(expanded!)
         delegate?.triggerChanges(item.value as? String ?? "")
     }
     
     func dropdownExpanded(_ sender: UIMagicDropdown) {
-        view?.collectionView.bringSubviewToFront(sender)
+        delegate?.dropdownExpanded(expanded!)
     }
     
     func dropdownCompressed(_ sender: UIMagicDropdown) {
-        
+
     }
     
 
@@ -45,5 +48,11 @@ class DropdownCollectionViewCell: UICollectionViewCell, UIMagicDropDownDelegate 
         super.awakeFromNib()
         dropdown.items = dropdownOptionsDataSource
         dropdown.dropDownDelegate = self
+        dropdown.hintMessage = "Select Delivery Method"
+        dropdown.frame = contentView.bounds
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
     }
 }

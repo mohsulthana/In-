@@ -15,8 +15,6 @@ extension ListAdapter: ListAdapterDataSource {
     
     public func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
         switch object {
-        case is PrepaidBankIdentifier:
-            return PrepaidBankSectionController()
         case is SwitchIdentifier:
             return SwitchSectionController()
         default:

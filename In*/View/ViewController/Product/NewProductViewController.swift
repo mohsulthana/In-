@@ -16,15 +16,17 @@ class NewProductViewController: UIViewController {
         field.borderStyle = .roundedRect
         field.placeholder = "Product Name"
         field.translatesAutoresizingMaskIntoConstraints = false
+        field.addDoneToolbar()
         return field
     }()
     
     lazy var quantityTextField: UITextField = {
         let field = UITextField()
         field.borderStyle = .roundedRect
-        field.placeholder = "Quantity"
+        field.placeholder = "Quantity In pcs"
         field.keyboardType = .numberPad
         field.translatesAutoresizingMaskIntoConstraints = false
+        field.addDoneToolbar()
         return field
     }()
     
@@ -33,6 +35,7 @@ class NewProductViewController: UIViewController {
         field.borderStyle = .roundedRect
         field.placeholder = "Brand"
         field.translatesAutoresizingMaskIntoConstraints = false
+        field.addDoneToolbar()
         return field
     }()
     
@@ -41,15 +44,17 @@ class NewProductViewController: UIViewController {
         field.borderStyle = .roundedRect
         field.placeholder = "Type"
         field.translatesAutoresizingMaskIntoConstraints = false
+        field.addDoneToolbar()
         return field
     }()
     
     lazy var submitButton: UIButton = {
         let button = UIButton(type: .roundedRect)
         button.setTitle("Submit", for: .normal)
-        button.tintColor = .darkGray
-        button.layer.borderColor = UIColor.lightGray.cgColor
-        button.layer.borderWidth = 1
+        button.setTitleColor(UIColor.darkGray, for: .disabled)
+        button.tintColor = .white
+        button.layer.cornerRadius = 4
+        button.backgroundColor = .primary
         button.addTarget(self, action: #selector(saveProductData), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -59,10 +64,17 @@ class NewProductViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         self.navigationItem.title = "Add New Product"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(closeScreen(_:)))
+        navigationItem.rightBarButtonItem?.tintColor = .primary
 
         setupTextField()
         setupButton()
         setupConstraint()
+    }
+    
+    @objc func closeScreen(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
     }
 
     func setupTextField() {
@@ -110,6 +122,7 @@ class NewProductViewController: UIViewController {
         productData.quantity = Int16(quantityTextField.text ?? "0") ?? 0
         productData.brand = brandTextField.text ?? ""
         productData.type = typeTextField.text ?? ""
+        productData.id = UUID()
         
         do {
             try managedObjectContext.save()

@@ -17,13 +17,13 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sYK-oa-gL6">
-                        <rect key="frame" x="335" y="24" width="51" height="31"/>
+                        <rect key="frame" x="335" y="22" width="51" height="31"/>
                         <connections>
                             <action selector="valueChanged:" destination="gTV-IL-0wX" eventType="valueChanged" id="dGm-46-ZGS"/>
                         </connections>
                     </switch>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CvN-zS-fEy">
-                        <rect key="frame" x="16" y="24" width="42" height="21"/>
+                        <rect key="frame" x="16" y="27.5" width="42" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -32,8 +32,8 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="sYK-oa-gL6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="24" id="8dc-L1-dsC"/>
-                <constraint firstItem="CvN-zS-fEy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="24" id="S4a-19-RZ1"/>
+                <constraint firstItem="sYK-oa-gL6" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Cja-3f-cFF"/>
+                <constraint firstItem="CvN-zS-fEy" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Ktn-ko-32S"/>
                 <constraint firstItem="CvN-zS-fEy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="hti-C8-YA3"/>
                 <constraint firstAttribute="trailing" secondItem="sYK-oa-gL6" secondAttribute="trailing" constant="16" id="xPi-iT-XbT"/>
             </constraints>

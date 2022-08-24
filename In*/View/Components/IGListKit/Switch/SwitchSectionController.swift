@@ -22,7 +22,7 @@ class SwitchSectionController: ListSectionController {
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
-        return CGSize(width: collectionContext!.containerSize.width, height: 90)
+        return CGSize(width: collectionContext!.containerSize.width, height: 75)
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {

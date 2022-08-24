@@ -8,17 +8,18 @@
 import IGListKit
 import IGListSwiftKit
 
-protocol TextFieldSectionControllerDelegate: AnyObject {
-    func switchValueChanged(_ isOn: Bool)
+@objc protocol TextSectionDelegate {
+    func textfieldSectionTapped(_ id: String, value: String)
 }
 
 class TextFieldSectionController: ListSectionController {
     
-    weak var delegate: SwitchSectionControllerDelegate?
-    private var identifier: TextfieldIdentifier?
+    weak var identifier: TextfieldIdentifier?
+    weak var view: TextSectionDelegate?
     
-    override init() {
-        super.init()
+    convenience init(view: TextSectionDelegate?) {
+        self.init()
+        self.view = view
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
@@ -27,8 +28,8 @@ class TextFieldSectionController: ListSectionController {
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell: TextfieldCollectionViewCell = collectionContext.dequeueReusableCell(withNibName: "TextfieldCollectionViewCell", bundle: nil, for: self, at: index)
-        cell.textField.placeholder = identifier?.placeholder
-        cell.textField
+        cell.identifier = identifier
+        cell.view = view
         return cell
     }
     
@@ -38,19 +39,24 @@ class TextFieldSectionController: ListSectionController {
 }
 
 final class TextfieldIdentifier: ListDiffable {
-    
+    let id: String
     let placeholder: String
+    var value: String?
+    var isEnabled: Bool? = true
     
-    init(placeholder: String) {
+    init(_ id: String, placeholder: String, value: String? = nil, isEnabled: Bool? = true) {
+        self.id = id
         self.placeholder = placeholder
+        self.value = value
+        self.isEnabled = isEnabled
     }
     func diffIdentifier() -> NSObjectProtocol {
-        return placeholder as NSObjectProtocol
+        return id as NSObjectProtocol
     }
     
     func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
         guard self !== object else { return true }
         guard let object = object as? TextfieldIdentifier else { return false }
-        return placeholder == object.placeholder
+        return id == object.id && placeholder == object.placeholder && value == object.value && isEnabled == object.isEnabled
     }
 }

@@ -27,5 +27,6 @@ class InventoryTableViewCell: UITableViewCell {
     fileprivate func setupPurchaseButton() {
         let icon = UIImage(systemName: "arrow.right")
         arrowIcon.image = icon
+        arrowIcon.tintColor = .primary
     }
 }

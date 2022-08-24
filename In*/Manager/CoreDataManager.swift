@@ -24,7 +24,7 @@ final class CoreDataManager {
         return container
     }()
     
-    func cancelPendingOrder(item: Order) {
+    func cancelPendingOrder(item: Order, product: Product) {
 //        let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
 //        let predicate = NSPredicate(format: "name == %@", item.name ?? "")
 //        fetchRequest.returnsObjectsAsFaults = false

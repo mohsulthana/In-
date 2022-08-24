@@ -9,10 +9,12 @@ import IGListKit
 
 class StepperSectionController: ListSectionController {
     
-    private var identifier: StepperIdentifier?
+    weak var identifier: StepperIdentifier?
+    weak var view: TextSectionDelegate?
     
-    override init() {
-        super.init()
+    convenience init(view: TextSectionDelegate?) {
+        self.init()
+        self.view = view
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
@@ -22,6 +24,9 @@ class StepperSectionController: ListSectionController {
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell: StepperCollectionViewCell = collectionContext.dequeueReusableCell(withNibName: "StepperCollectionViewCell", bundle: nil, for: self, at: index)
         cell.stepperLabel.text = identifier?.label
+        cell.stepper.maximumValue = Double(identifier?.maxValue ?? 10)
+        cell.view = view
+        cell.identifier = identifier
         return cell
     }
     
@@ -32,18 +37,24 @@ class StepperSectionController: ListSectionController {
 
 final class StepperIdentifier: ListDiffable {
     
+    let id: String
     let label: String
+    let maxValue: Int?
     
-    init(label: String) {
+    init(_ id: String, label: String, maxValue: Int?) {
+        self.id = id
         self.label = label
+        self.maxValue = maxValue
     }
     func diffIdentifier() -> NSObjectProtocol {
-        return label as NSObjectProtocol
+        return id as NSObjectProtocol
     }
     
     func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
         guard self !== object else { return true }
         guard let object = object as? StepperIdentifier else { return false }
-        return label == object.label
+        return label == object.label &&
+        id == object.id &&
+        maxValue == object.maxValue
     }
 }
