@@ -6,7 +6,6 @@
 //
 
 import IGListKit
-import SwiftyMenu
 import UIMagicDropDown
 
 protocol DropdownSectionControllerDelegate: AnyObject {
