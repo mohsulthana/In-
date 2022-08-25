@@ -87,22 +87,6 @@ class OrderDetailViewController: UIViewController, ListAdapterDataSource {
             let sectionController = ButtonSectionController()
             sectionController.delegate = self
             return sectionController
-//        case is DropdownIdentifier:
-//            let sectionController = DropdownSectionController()
-//            sectionController.delegate = self
-//            return sectionController
-//        case is StepperIdentifier:
-//            let sectionController = StepperSectionController()
-//            sectionController.view = self
-//            return sectionController
-//        case is TextfieldIdentifier:
-//            let sectionController = TextFieldSectionController()
-//            sectionController.view = self
-//            return sectionController
-//        case is SwitchIdentifier:
-//            let sectionController = SwitchSectionController()
-//            sectionController.delegate = self
-//            return sectionController
         default:
             return EmptySectionController()
         }

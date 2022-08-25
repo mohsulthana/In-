@@ -45,9 +45,14 @@ class ProductViewController: UIViewController, UISearchResultsUpdating {
         view.backgroundColor = .systemBackground
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(addItem))
         navigationItem.rightBarButtonItem?.tintColor = .primary
-        title = "Product List"
+        title = "Product"
         fetchProduct()
         setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchProduct()
     }
 
     private func fetchProduct() {
@@ -58,7 +63,10 @@ class ProductViewController: UIViewController, UISearchResultsUpdating {
             do {
                 let result = try fetchRequest.execute()
                 self.products = result
-                self.inventoryTableView.reloadData()
+                
+                DispatchQueue.main.async {
+                    self.inventoryTableView.reloadData()
+                }
             } catch {
                 print("Unable to Execute Fetch Request, \(error)")
             }
@@ -139,17 +147,26 @@ extension ProductViewController: UITableViewDelegate, UITableViewDataSource {
         present(UINavigationController(rootViewController: customerPurchase), animated: true, completion: nil)
     }
 
-//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        let editAction = UIContextualAction(style: .normal, title: "Edit") { _, _, _ in
-//            let editProduct = EditProductViewController()
-//            self.present(UINavigationController(rootViewController: editProduct), animated: true, completion: nil)
-//        }
-//
-//        editAction.backgroundColor = .systemBlue
-//
-//        let swipeActions = UISwipeActionsConfiguration(actions: [editAction])
-//        return swipeActions
-//    }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { _, _, completionHandler in
+            let editProduct = EditProductViewController()
+            editProduct.product = self.products[indexPath.row]
+            editProduct.row = indexPath
+            editProduct.vc = self
+            self.present(UINavigationController(rootViewController: editProduct), animated: true, completion: nil)
+            
+            completionHandler(true)
+        }
+
+        editAction.backgroundColor = .systemBlue
+        let swipeActions = UISwipeActionsConfiguration(actions: [editAction])
+        return swipeActions
+    }
+    
+    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        guard let indexPath = indexPath else { return }
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
 }
 
 extension ProductViewController: ProductViewProtocol {

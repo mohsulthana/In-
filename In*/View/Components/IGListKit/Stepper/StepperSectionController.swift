@@ -23,8 +23,6 @@ class StepperSectionController: ListSectionController {
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell: StepperCollectionViewCell = collectionContext.dequeueReusableCell(withNibName: "StepperCollectionViewCell", bundle: nil, for: self, at: index)
-        cell.stepperLabel.text = identifier?.label
-        cell.stepper.maximumValue = Double(identifier?.maxValue ?? 10)
         cell.view = view
         cell.identifier = identifier
         return cell
@@ -39,13 +37,16 @@ final class StepperIdentifier: ListDiffable {
     
     let id: String
     let label: String
+    let value: Int16?
     let maxValue: Int?
     
-    init(_ id: String, label: String, maxValue: Int?) {
+    init(_ id: String, label: String, maxValue: Int?, value: Int16? = 0) {
         self.id = id
         self.label = label
         self.maxValue = maxValue
+        self.value = value
     }
+    
     func diffIdentifier() -> NSObjectProtocol {
         return id as NSObjectProtocol
     }
@@ -55,6 +56,7 @@ final class StepperIdentifier: ListDiffable {
         guard let object = object as? StepperIdentifier else { return false }
         return label == object.label &&
         id == object.id &&
-        maxValue == object.maxValue
+        maxValue == object.maxValue &&
+        value == object.value
     }
 }

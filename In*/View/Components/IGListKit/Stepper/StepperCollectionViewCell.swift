@@ -46,6 +46,10 @@ class StepperCollectionViewCell: UICollectionViewCell {
     
     private func setupView() {
         setupDoneToolbar()
+        stepperLabel.text = identifier?.label
+        stepper.maximumValue = Double(identifier?.maxValue ?? 10)
+        stepper.value = Double(identifier?.value ?? 0)
+        stepperValueTextField.text = Int(stepper.value).description
     }
     
     private func submitTextfieldValue() {
