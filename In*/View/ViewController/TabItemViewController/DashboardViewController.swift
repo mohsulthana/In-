@@ -189,14 +189,14 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            cell.textLabel?.text = pendingItems[indexPath.row].name
+            cell.textLabel?.text = pendingItems[indexPath.row].customer?.name ?? "No customer name"
             cell.textLabel?.textColor = .primary
             cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         case 1:
-            cell.textLabel?.text = completedItems[indexPath.row].name
-            cell.textLabel?.textColor = .darkText
+            cell.textLabel?.text = completedItems[indexPath.row].customer?.name ?? "No customer name"
+            cell.textLabel?.textColor = .primary
         case 2:
-            cell.textLabel?.text = cancelledItems[indexPath.row].name
+            cell.textLabel?.text = cancelledItems[indexPath.row].customer?.name ?? "No customer name"
             cell.textLabel?.textColor = .systemRed
         default:
             break

@@ -7,6 +7,7 @@
 
 import CoreData
 import UIKit
+import UserNotifications
 
 protocol ProductViewProtocol {
     func reloadData()
@@ -27,10 +28,11 @@ class ProductViewController: UIViewController, UISearchResultsUpdating {
             return productNameMatch != nil
         })
     }
-
+    
     var products: [Product] = []
     var searchResult: [Product] = []
     var searchController: UISearchController?
+    let notif = NotificationManager()
 
     lazy var inventoryTableView: UITableView = {
         let table = UITableView()
@@ -48,6 +50,10 @@ class ProductViewController: UIViewController, UISearchResultsUpdating {
         title = "Product"
         fetchProduct()
         setupTableView()
+        
+        notif.userNotificationCenter?.delegate = self
+        notif.requestNotificationAuthorization()
+        notif.sendNotification(product: "Hello")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,6 +72,10 @@ class ProductViewController: UIViewController, UISearchResultsUpdating {
                 
                 DispatchQueue.main.async {
                     self.inventoryTableView.reloadData()
+                    
+                    let zeroQuantity = self.products.filter { $0.quantity == 0  }
+                    let product = zeroQuantity.first?.name
+                    self.notif.sendNotification(product: product)
                 }
             } catch {
                 print("Unable to Execute Fetch Request, \(error)")
@@ -125,12 +135,12 @@ extension ProductViewController: UITableViewDelegate, UITableViewDataSource {
         let type = searchResult.count > 0 ? searchResult[indexPath.row].type : products[indexPath.row].type
 
         cell.displayValue.text = productName
-        cell.quantityValue.text = "\(quantity) pcs"
+        cell.quantityValue.text = quantity == 0 ? "\(quantity) pcs. (Out of stock)" : "\(quantity) pcs"
         cell.brandValue.text = "Brand \(String(describing: brand ?? ""))"
         cell.typeValue.text = "Type \(String(describing: type ?? ""))"
         
         cell.displayValue.textColor = .primary
-        cell.quantityValue.textColor = .secondaryLabel
+        cell.quantityValue.textColor =  quantity == 0 ? .systemRed : .secondaryLabel
         cell.brandValue.textColor = .label
         cell.typeValue.textColor = .tertiaryLabel
         return cell
@@ -141,6 +151,16 @@ extension ProductViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let product = searchController?.isActive ?? true ? searchResult : products
+        
+        if product[indexPath.row].quantity == 0 {
+            let alert = UIAlertController(title: "Product is empty", message: "Please update the quantity or make purchase of another product.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Understand", style: .default, handler: { action in
+                self.dismiss(animated: true)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
         let customerPurchase = PurchaseProductViewController()
         customerPurchase.product = products[indexPath.row]
         customerPurchase.delegate = self
@@ -172,5 +192,21 @@ extension ProductViewController: UITableViewDelegate, UITableViewDataSource {
 extension ProductViewController: ProductViewProtocol {
     func reloadData() {
         fetchProduct()
+    }
+}
+
+extension ProductViewController: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        switch response.actionIdentifier {
+        case "out_of_stock":
+            let productViewController = ProductViewController()
+            self.present(UINavigationController(rootViewController: productViewController), animated: true, completion: nil)
+        default:
+            break
+        }
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("aha")
     }
 }

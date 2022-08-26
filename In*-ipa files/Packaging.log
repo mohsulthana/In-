@@ -1,0 +1,174 @@
+2022-08-25 18:35:18 +0000  Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x7fcf709991d0; archive(resolved)="<IDEArchive: 0x7fcf74ecf6c0>", distributionTask(resolved)="2", distributionDestination(resolved)="1", distributionMethod(resolved)="<IDEDistributionMethodDevelopmentSigned: 0x7fcf37d390f0>", team(resolved)="<IDEProvisioningDisambiguatableBasicTeam: 0x7fcf31a6a680; teamID='45N4YCBZCJ', teamName='M Sulthan Alif Utama', teamType='Individual', username='muhammadsultana@outlook.com', isFreeProvisioningTeam='0'>">
+	Chain (14, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x7fcf709991d0; archive = "<IDEArchive: 0x7fcf74ecf6c0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7fcf37d390f0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7fcf31a6a680; teamID='45N4YCBZCJ', teamName='M Sulthan Alif Utama', teamType='Individual', username='muhammadsultana@outlook.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionProcessingPipelineContext: 0x7fcf76a5bb00; archive = "<IDEArchive: 0x7fcf74ecf6c0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7fcf37d390f0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7fcf31a6a680; teamID='45N4YCBZCJ', teamName='M Sulthan Alif Utama', teamType='Individual', username='muhammadsultana@outlook.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fcf7560fcf0; archive = "<IDEArchive: 0x7fcf74ecf6c0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7fcf37d390f0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7fcf31a6a680; teamID='45N4YCBZCJ', teamName='M Sulthan Alif Utama', teamType='Individual', username='muhammadsultana@outlook.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fcf7234e020; archive = "<IDEArchive: 0x7fcf74ecf6c0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7fcf37d390f0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7fcf31a6a680; teamID='45N4YCBZCJ', teamName='M Sulthan Alif Utama', teamType='Individual', username='muhammadsultana@outlook.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fcf37a0eb70; archive = "<IDEArchive: 0x7fcf74ecf6c0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7fcf37d390f0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7fcf31a6a680; teamID='45N4YCBZCJ', teamName='M Sulthan Alif Utama', teamType='Individual', username='muhammadsultana@outlook.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fcf36dcd210; archive = "<IDEArchive: 0x7fcf74ecf6c0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7fcf37d390f0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7fcf31a6a680; teamID='45N4YCBZCJ', teamName='M Sulthan Alif Utama', teamType='Individual', username='muhammadsultana@outlook.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fcf739c9200; archive = "<IDEArchive: 0x7fcf74ecf6c0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7fcf37d390f0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7fcf31a6a680; teamID='45N4YCBZCJ', teamName='M Sulthan Alif Utama', teamType='Individual', username='muhammadsultana@outlook.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fcf76a4cd70; archive = "<IDEArchive: 0x7fcf74ecf6c0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7fcf37d390f0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7fcf31a6a680; teamID='45N4YCBZCJ', teamName='M Sulthan Alif Utama', teamType='Individual', username='muhammadsultana@outlook.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fcf62a49b30; archive = "<IDEArchive: 0x7fcf74ecf6c0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7fcf37d390f0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7fcf31a6a680; teamID='45N4YCBZCJ', teamName='M Sulthan Alif Utama', teamType='Individual', username='muhammadsultana@outlook.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fcf64d63670; archive = "<IDEArchive: 0x7fcf74ecf6c0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7fcf37d390f0>", team="(null)">
+	<IDEDistributionContext: 0x7fcf64db13b0; archive = "<IDEArchive: 0x7fcf74ecf6c0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7fcf37d390f0>", team="(null)">
+	<IDEDistributionContext: 0x7fcf31f66330; archive = "<IDEArchive: 0x7fcf74ecf6c0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7fcf37d390f0>", team="(null)">
+	<IDEDistributionContext: 0x7fcf37ee8080; archive = "<IDEArchive: 0x7fcf74ecf6c0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7fcf37d390f0>", team="(null)">
+	<IDEDistributionContext: 0x7fcf70de1340; archive = "<IDEArchive: 0x7fcf74ecf6c0>", distributionMethod="(null)", team="(null)">
+</IDEDistributionProcessingPipelineContext: 0x7fcf709991d0>
+2022-08-25 18:35:18 +0000  Processing step: IDEDistributionCreateDestRootStep
+2022-08-25 18:35:18 +0000  Processing step: IDEDistributionCopyItemStep
+2022-08-25 18:35:18 +0000  Running /usr/bin/ditto '-V' '/Users/mohammadsulthan/Library/Developer/Xcode/Archives/2022-08-26/In* 26-08-22 01.29.xcarchive/Products/Applications/In*.app' '/var/folders/l5/b_xz708s0vb80qyhxsxk8q8w0000gq/T/XcodeDistPipeline.~~~gbHyah/Root/Payload/In*.app'
+2022-08-25 18:35:18 +0000  >>> Copying /Users/mohammadsulthan/Library/Developer/Xcode/Archives/2022-08-26/In* 26-08-22 01.29.xcarchive/Products/Applications/In*.app 
+2022-08-25 18:35:18 +0000  copying file ./PrepaidBankCollectionViewCell.nib ... 
+2022-08-25 18:35:18 +0000  4019 bytes for ./PrepaidBankCollectionViewCell.nib
+2022-08-25 18:35:18 +0000  copying file ./DropdownCollectionViewCell.nib ... 
+2022-08-25 18:35:18 +0000  2974 bytes for ./DropdownCollectionViewCell.nib
+2022-08-25 18:35:18 +0000  copying file ./_CodeSignature/CodeResources ... 
+2022-08-25 18:35:18 +0000  5869 bytes for ./_CodeSignature/CodeResources
+2022-08-25 18:35:18 +0000  copying file ./In.momd/VersionInfo.plist ... 
+2022-08-25 18:35:18 +0000  399 bytes for ./In.momd/VersionInfo.plist
+2022-08-25 18:35:18 +0000  copying file ./In.momd/In.mom ... 
+2022-08-25 18:35:18 +0000  5417 bytes for ./In.momd/In.mom
+2022-08-25 18:35:18 +0000  copying file ./AppIcon60x60@2x.png ... 
+2022-08-25 18:35:18 +0000  6550 bytes for ./AppIcon60x60@2x.png
+2022-08-25 18:35:18 +0000  copying file ./StepperCollectionViewCell.nib ... 
+2022-08-25 18:35:18 +0000  4570 bytes for ./StepperCollectionViewCell.nib
+copying file ./InventoryTableViewCell.nib ... 
+2022-08-25 18:35:18 +0000  4537 bytes for ./InventoryTableViewCell.nib
+2022-08-25 18:35:18 +0000  copying file ./Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib ... 
+2022-08-25 18:35:18 +0000  1966 bytes for ./Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib
+2022-08-25 18:35:18 +0000  copying file ./Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib ... 
+2022-08-25 18:35:18 +0000  896 bytes for ./Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib
+2022-08-25 18:35:18 +0000  copying file ./Base.lproj/LaunchScreen.storyboardc/Info.plist ... 
+2022-08-25 18:35:18 +0000  258 bytes for ./Base.lproj/LaunchScreen.storyboardc/Info.plist
+2022-08-25 18:35:18 +0000  copying file ./In* ... 
+2022-08-25 18:35:18 +0000  9184960 bytes for ./In*
+2022-08-25 18:35:18 +0000  copying file ./Assets.car ... 
+401647 bytes for ./Assets.car
+copying file ./DataDetailCollectionViewCell.nib ... 
+3840 bytes for ./DataDetailCollectionViewCell.nib
+copying file ./ButtonCollectionViewCell.nib ... 
+2022-08-25 18:35:18 +0000  4598 bytes for ./ButtonCollectionViewCell.nib
+2022-08-25 18:35:18 +0000  copying file ./TextfieldCollectionViewCell.nib ... 
+2022-08-25 18:35:18 +0000  3578 bytes for ./TextfieldCollectionViewCell.nib
+2022-08-25 18:35:18 +0000  copying file ./embedded.mobileprovision ... 
+2022-08-25 18:35:18 +0000  12108 bytes for ./embedded.mobileprovision
+2022-08-25 18:35:18 +0000  copying file ./Info.plist ... 
+2022-08-25 18:35:18 +0000  1554 bytes for ./Info.plist
+2022-08-25 18:35:18 +0000  copying file ./PkgInfo ... 
+2022-08-25 18:35:18 +0000  8 bytes for ./PkgInfo
+2022-08-25 18:35:18 +0000  copying file ./SwitchCollectionViewCell.nib ... 
+2022-08-25 18:35:18 +0000  3971 bytes for ./SwitchCollectionViewCell.nib
+2022-08-25 18:35:18 +0000  /usr/bin/ditto exited with 0
+2022-08-25 18:35:18 +0000  Processing step: IDEDistributionEmbedProfileStep
+2022-08-25 18:35:18 +0000  Processing step: IDEDistributionInfoPlistStep
+2022-08-25 18:35:18 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2022-08-25 18:35:18 +0000  Processing step: IDEDistributionAppThinningPlistStep
+2022-08-25 18:35:18 +0000  Skipping step: IDEDistributionAppThinningPlistStep because it said so
+2022-08-25 18:35:18 +0000  Processing step: IDEDistributionCompileBitcodeStep
+2022-08-25 18:35:18 +0000  Skipping step: IDEDistributionCompileBitcodeStep because it said so
+2022-08-25 18:35:18 +0000  Processing step: IDEDistributionCodeSlimmingStep
+2022-08-25 18:35:18 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip '/var/folders/l5/b_xz708s0vb80qyhxsxk8q8w0000gq/T/XcodeDistPipeline.~~~gbHyah/Root/Payload/In*.app/In*' '-r' '-keep_cs' '-o' '/var/folders/l5/b_xz708s0vb80qyhxsxk8q8w0000gq/T/XcodeDistPipeline.~~~gbHyah/Root/Payload/In*.app/In*'
+2022-08-25 18:35:18 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip exited with 0
+2022-08-25 18:35:18 +0000  Processing step: IDEDistributionCopyBCSymbolMapsStep
+2022-08-25 18:35:18 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2022-08-25 18:35:18 +0000  Processing step: IDEDistributionSymbolsStep
+2022-08-25 18:35:18 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2022-08-25 18:35:18 +0000  Processing step: IDEDistributionAppThinningStep
+2022-08-25 18:35:18 +0000  Skipping step: IDEDistributionAppThinningStep because it said so
+2022-08-25 18:35:18 +0000  Processing step: IDEDistributionArchThinningStep
+2022-08-25 18:35:18 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/l5/b_xz708s0vb80qyhxsxk8q8w0000gq/T/XcodeDistPipeline.~~~gbHyah/Root/Payload/In*.app/In*' '-verify_arch' 'arm64e'
+2022-08-25 18:35:18 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2022-08-25 18:35:18 +0000  Skipping architecture thinning for item "In*" because arch "arm64e" wasn't found
+2022-08-25 18:35:18 +0000  Processing step: IDEDistributionODRStep
+2022-08-25 18:35:18 +0000  Processing step: IDEDistributionStripXattrsStep
+2022-08-25 18:35:18 +0000  Running /usr/bin/xattr '-crs' '/var/folders/l5/b_xz708s0vb80qyhxsxk8q8w0000gq/T/XcodeDistPipeline.~~~gbHyah/Root/Payload/In*.app'
+2022-08-25 18:35:18 +0000  /usr/bin/xattr exited with 0
+2022-08-25 18:35:18 +0000  Processing step: IDEDistributionCodesignStep
+2022-08-25 18:35:18 +0000  Entitlements for <IDEDistributionItem: 0x7fcf72167970; bundleID='mohsulthana.In-', path='<DVTFilePath:0x7fcf31cb7270:'/Users/mohammadsulthan/Library/Developer/Xcode/Archives/2022-08-26/In* 26-08-22 01.29.xcarchive/Products/Applications/In*.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fcf80920c00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fcf71c85620; name='Apple Development: M Sulthan Alif Utama (WPQFA9Q9X8)', hash='E754E154445E32280D9F96D470829B410442D656', serialNumber='5A966C447543DE0CF603903B3C5D7CE0', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-07-02 09:30:02 +0000''>', entitlements='{
+    "application-identifier" = "45N4YCBZCJ.mohsulthana.In-";
+    "com.apple.developer.team-identifier" = 45N4YCBZCJ;
+    "get-task-allow" = 1;
+}', teamID='45N4YCBZCJ', identifier='mohsulthana.In-', executablePath='<DVTFilePath:0x7fcf64109930:'/Users/mohammadsulthan/Library/Developer/Xcode/Archives/2022-08-26/In* 26-08-22 01.29.xcarchive/Products/Applications/In*.app/In*'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "45N4YCBZCJ.mohsulthana.In-";
+    "com.apple.developer.team-identifier" = 45N4YCBZCJ;
+    "get-task-allow" = 1;
+}
+2022-08-25 18:35:18 +0000  Entitlements for <IDEDistributionItem: 0x7fcf72167970; bundleID='mohsulthana.In-', path='<DVTFilePath:0x7fcf31cb7270:'/Users/mohammadsulthan/Library/Developer/Xcode/Archives/2022-08-26/In* 26-08-22 01.29.xcarchive/Products/Applications/In*.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fcf80920c00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fcf60e5dc90; name='Apple Development: M Sulthan Alif Utama (WPQFA9Q9X8)', hash='E754E154445E32280D9F96D470829B410442D656', serialNumber='5A966C447543DE0CF603903B3C5D7CE0', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-07-02 09:30:02 +0000''>', entitlements='{
+    "application-identifier" = "45N4YCBZCJ.mohsulthana.In-";
+    "com.apple.developer.team-identifier" = 45N4YCBZCJ;
+    "get-task-allow" = 1;
+}', teamID='45N4YCBZCJ', identifier='mohsulthana.In-', executablePath='<DVTFilePath:0x7fcf64109930:'/Users/mohammadsulthan/Library/Developer/Xcode/Archives/2022-08-26/In* 26-08-22 01.29.xcarchive/Products/Applications/In*.app/In*'>', hardenedRuntime='0'>'> are: {
+    "application-identifier" = "45N4YCBZCJ.mohsulthana.In-";
+    "com.apple.developer.team-identifier" = 45N4YCBZCJ;
+    "get-task-allow" = 1;
+}
+2022-08-25 18:35:18 +0000  Writing entitlements for <IDEDistributionItem: 0x7fcf72167970; bundleID='mohsulthana.In-', path='<DVTFilePath:0x7fcf31cb7270:'/Users/mohammadsulthan/Library/Developer/Xcode/Archives/2022-08-26/In* 26-08-22 01.29.xcarchive/Products/Applications/In*.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fcf80920c00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fcf31599050; name='Apple Development: M Sulthan Alif Utama (WPQFA9Q9X8)', hash='E754E154445E32280D9F96D470829B410442D656', serialNumber='5A966C447543DE0CF603903B3C5D7CE0', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-07-02 09:30:02 +0000''>', entitlements='{
+    "application-identifier" = "45N4YCBZCJ.mohsulthana.In-";
+    "com.apple.developer.team-identifier" = 45N4YCBZCJ;
+    "get-task-allow" = 1;
+}', teamID='45N4YCBZCJ', identifier='mohsulthana.In-', executablePath='<DVTFilePath:0x7fcf64109930:'/Users/mohammadsulthan/Library/Developer/Xcode/Archives/2022-08-26/In* 26-08-22 01.29.xcarchive/Products/Applications/In*.app/In*'>', hardenedRuntime='0'>'> to: /var/folders/l5/b_xz708s0vb80qyhxsxk8q8w0000gq/T/XcodeDistPipeline.~~~gbHyah/entitlements~~~i35K5v
+2022-08-25 18:35:18 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'E754E154445E32280D9F96D470829B410442D656' '--entitlements' '/var/folders/l5/b_xz708s0vb80qyhxsxk8q8w0000gq/T/XcodeDistPipeline.~~~gbHyah/entitlements~~~i35K5v' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/l5/b_xz708s0vb80qyhxsxk8q8w0000gq/T/XcodeDistPipeline.~~~gbHyah/Root/Payload/In*.app'
+2022-08-25 18:35:18 +0000  /var/folders/l5/b_xz708s0vb80qyhxsxk8q8w0000gq/T/XcodeDistPipeline.~~~gbHyah/Root/Payload/In*.app: replacing existing signature
+2022-08-25 18:35:18 +0000  /var/folders/l5/b_xz708s0vb80qyhxsxk8q8w0000gq/T/XcodeDistPipeline.~~~gbHyah/Root/Payload/In*.app: signed app bundle with Mach-O thin (arm64) [mohsulthana.In-]
+2022-08-25 18:35:18 +0000  /usr/bin/codesign exited with 0
+2022-08-25 18:35:18 +0000  Processing step: IDEDistributionZipODRItemStep
+2022-08-25 18:35:18 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2022-08-25 18:35:18 +0000  Processing step: IDEDistributionCreateIPAStep
+2022-08-25 18:35:18 +0000  Running /usr/bin/ditto '-V' '-c' '-k' '--norsrc' '/var/folders/l5/b_xz708s0vb80qyhxsxk8q8w0000gq/T/XcodeDistPipeline.~~~gbHyah/Root' '/var/folders/l5/b_xz708s0vb80qyhxsxk8q8w0000gq/T/XcodeDistPipeline.~~~gbHyah/Packages/In*.ipa'
+2022-08-25 18:35:18 +0000  >>> Copying /var/folders/l5/b_xz708s0vb80qyhxsxk8q8w0000gq/T/XcodeDistPipeline.~~~gbHyah/Root 
+2022-08-25 18:35:18 +0000  copying file ./Payload/In*.app/PrepaidBankCollectionViewCell.nib ... 
+2022-08-25 18:35:18 +0000  4019 bytes for ./Payload/In*.app/PrepaidBankCollectionViewCell.nib
+2022-08-25 18:35:18 +0000  copying file ./Payload/In*.app/DropdownCollectionViewCell.nib ... 
+2022-08-25 18:35:18 +0000  2974 bytes for ./Payload/In*.app/DropdownCollectionViewCell.nib
+copying file ./Payload/In*.app/_CodeSignature/CodeResources ... 
+2022-08-25 18:35:18 +0000  5869 bytes for ./Payload/In*.app/_CodeSignature/CodeResources
+2022-08-25 18:35:18 +0000  copying file ./Payload/In*.app/In.momd/VersionInfo.plist ... 
+2022-08-25 18:35:18 +0000  399 bytes for ./Payload/In*.app/In.momd/VersionInfo.plist
+copying file ./Payload/In*.app/In.momd/In.mom ... 
+2022-08-25 18:35:18 +0000  5417 bytes for ./Payload/In*.app/In.momd/In.mom
+2022-08-25 18:35:18 +0000  copying file ./Payload/In*.app/AppIcon60x60@2x.png ... 
+2022-08-25 18:35:18 +0000  6550 bytes for ./Payload/In*.app/AppIcon60x60@2x.png
+copying file ./Payload/In*.app/StepperCollectionViewCell.nib ... 
+2022-08-25 18:35:18 +0000  4570 bytes for ./Payload/In*.app/StepperCollectionViewCell.nib
+2022-08-25 18:35:18 +0000  copying file ./Payload/In*.app/InventoryTableViewCell.nib ... 
+2022-08-25 18:35:18 +0000  4537 bytes for ./Payload/In*.app/InventoryTableViewCell.nib
+2022-08-25 18:35:18 +0000  copying file ./Payload/In*.app/Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib ... 
+2022-08-25 18:35:18 +0000  1966 bytes for ./Payload/In*.app/Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib
+copying file ./Payload/In*.app/Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib ... 
+2022-08-25 18:35:18 +0000  896 bytes for ./Payload/In*.app/Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib
+copying file ./Payload/In*.app/Base.lproj/LaunchScreen.storyboardc/Info.plist ... 
+2022-08-25 18:35:18 +0000  258 bytes for ./Payload/In*.app/Base.lproj/LaunchScreen.storyboardc/Info.plist
+copying file ./Payload/In*.app/In* ... 
+2022-08-25 18:35:18 +0000  1308736 bytes for ./Payload/In*.app/In*
+copying file ./Payload/In*.app/Assets.car ... 
+2022-08-25 18:35:18 +0000  401647 bytes for ./Payload/In*.app/Assets.car
+2022-08-25 18:35:18 +0000  copying file ./Payload/In*.app/DataDetailCollectionViewCell.nib ... 
+3840 bytes for ./Payload/In*.app/DataDetailCollectionViewCell.nib
+copying file ./Payload/In*.app/ButtonCollectionViewCell.nib ... 
+2022-08-25 18:35:18 +0000  4598 bytes for ./Payload/In*.app/ButtonCollectionViewCell.nib
+2022-08-25 18:35:18 +0000  copying file ./Payload/In*.app/TextfieldCollectionViewCell.nib ... 
+2022-08-25 18:35:18 +0000  3578 bytes for ./Payload/In*.app/TextfieldCollectionViewCell.nib
+copying file ./Payload/In*.app/embedded.mobileprovision ... 
+2022-08-25 18:35:18 +0000  12108 bytes for ./Payload/In*.app/embedded.mobileprovision
+2022-08-25 18:35:18 +0000  copying file ./Payload/In*.app/Info.plist ... 
+2022-08-25 18:35:18 +0000  1554 bytes for ./Payload/In*.app/Info.plist
+copying file ./Payload/In*.app/PkgInfo ... 
+2022-08-25 18:35:18 +0000  8 bytes for ./Payload/In*.app/PkgInfo
+copying file ./Payload/In*.app/SwitchCollectionViewCell.nib ... 
+2022-08-25 18:35:18 +0000  3971 bytes for ./Payload/In*.app/SwitchCollectionViewCell.nib
+2022-08-25 18:35:18 +0000  /usr/bin/ditto exited with 0
+2022-08-25 18:35:18 +0000  Processing step: IDEDistributionAppStoreInformationStep
+2022-08-25 18:35:18 +0000  Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2022-08-25 18:35:18 +0000  Processing step: IDEDistributionGenerateProcessedDistributionItems
+2022-08-25 18:35:18 +0000  IDEDistributionItem init <DVTFilePath:0x7fcf645aaac0:'/var/folders/l5/b_xz708s0vb80qyhxsxk8q8w0000gq/T/XcodeDistPipeline.~~~gbHyah/Root/Payload/In*.app'>
+2022-08-25 18:35:18 +0000  Processing step: IDEDistributionCreateManifestStep

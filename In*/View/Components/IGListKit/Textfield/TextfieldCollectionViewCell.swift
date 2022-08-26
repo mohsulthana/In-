@@ -48,6 +48,7 @@ class TextfieldCollectionViewCell: UICollectionViewCell {
     
     @objc func onDoneButtonTapped(_ sender: UIBarButtonItem) {
         view?.textfieldSectionTapped(identifier?.id ?? "", value: textField.text ?? "")
+        textField.resignFirstResponder()
     }
 }
 

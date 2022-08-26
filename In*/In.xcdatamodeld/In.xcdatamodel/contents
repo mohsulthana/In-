@@ -5,6 +5,10 @@
         <attribute name="bank2" optional="YES" attributeType="String"/>
         <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="bank" inverseEntity="Order"/>
     </entity>
+    <entity name="Customer" representedClassName="Customer" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="customer" inverseEntity="Order"/>
+    </entity>
     <entity name="DeliveryAddress" representedClassName="DeliveryAddress" syncable="YES" codeGenerationType="class">
         <attribute name="address1" optional="YES" attributeType="String"/>
         <attribute name="address2" optional="YES" attributeType="String"/>
@@ -20,6 +24,7 @@
         <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="status" optional="YES" attributeType="String"/>
         <relationship name="bank" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bank" inverseName="order" inverseEntity="Bank"/>
+        <relationship name="customer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Customer" inverseName="order" inverseEntity="Customer"/>
         <relationship name="delivery" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DeliveryAddress" inverseName="order" inverseEntity="DeliveryAddress"/>
         <relationship name="pickup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PickupAddress" inverseName="order" inverseEntity="PickupAddress"/>
         <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="order" inverseEntity="Product"/>
@@ -42,9 +47,10 @@
     <elements>
         <element name="Bank" positionX="-45" positionY="63" width="128" height="74"/>
         <element name="DeliveryAddress" positionX="-45" positionY="36" width="128" height="89"/>
-        <element name="Order" positionX="-54" positionY="18" width="128" height="194"/>
+        <element name="Order" positionX="-54" positionY="18" width="128" height="209"/>
         <element name="PickupAddress" positionX="-36" positionY="54" width="128" height="89"/>
         <element name="Product" positionX="-63" positionY="-18" width="128" height="119"/>
         <element name="User" positionX="-63" positionY="-18" width="128" height="29"/>
+        <element name="Customer" positionX="-54" positionY="99" width="128" height="59"/>
     </elements>
 </model>

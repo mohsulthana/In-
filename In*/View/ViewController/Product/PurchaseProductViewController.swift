@@ -17,6 +17,7 @@ enum TextfieldId: String {
     case bankOne, bankTwo
     case quantity
     case notes
+    case customerName
 }
 
 final class PurchaseProductViewController: UIViewController, ListAdapterDataSource {
@@ -50,6 +51,8 @@ final class PurchaseProductViewController: UIViewController, ListAdapterDataSour
     var bank2: String?
 
     var notes: String?
+    
+    var customerName: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +74,7 @@ final class PurchaseProductViewController: UIViewController, ListAdapterDataSour
     private func setupListdiffable() {
         var list: [ListDiffable] = []
         list.append(TextfieldIdentifier(TextfieldId.productName.rawValue, placeholder: "Product Name", value: product?.name, isEnabled: false))
+        list.append(TextfieldIdentifier(TextfieldId.customerName.rawValue, placeholder: "Customer Name"))
         list.append(StepperIdentifier("quantity", label: "Quantity", maxValue: Int(product?.quantity ?? 10)))
         list.append(DropdownIdentifier())
 
@@ -182,6 +186,8 @@ extension PurchaseProductViewController: TextSectionDelegate {
             notes = value
         } else if id == TextfieldId.quantity.rawValue {
             quantity = Int(value)
+        } else if id == TextfieldId.customerName.rawValue {
+            customerName = value
         }
     }
 }
@@ -206,6 +212,9 @@ extension PurchaseProductViewController: ButtonSectionControllerDelegate {
         let deliveryObject = DeliveryAddress(context: managedObjectContext)
         let pickupObject = PickupAddress(context: managedObjectContext)
         let bankObject = Bank(context: managedObjectContext)
+        let customerObject = Customer(context: managedObjectContext)
+        
+        customerObject.name = customerName
 
         if deliveryMethod == DeliveryMethod.delivery.rawValue {
             deliveryObject.address1 = delivery1
@@ -235,6 +244,7 @@ extension PurchaseProductViewController: ButtonSectionControllerDelegate {
         orderObject.bank = bankObject
         orderObject.notes = notes
         orderObject.isPrepaid = isPrepaid
+        orderObject.customer = customerObject
 
         updateProductQuantity()
 

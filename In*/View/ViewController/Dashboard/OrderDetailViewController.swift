@@ -40,6 +40,7 @@ class OrderDetailViewController: UIViewController, ListAdapterDataSource {
 
         list.append(DataDetailIdentifier("product name", title: "Product Name", value: order?.product?.name ?? ""))
         list.append(DataDetailIdentifier("quantity", title: "Quantity", value: "\(String(describing: order?.product?.quantity ?? 0)) pcs"))
+        list.append(DataDetailIdentifier("customer", title: "Customer", value: "\(order?.customer?.name ?? "Customer Name")"))
         list.append(DataDetailIdentifier("method", title: "Delivery Method", value: order?.deliveryType == DeliveryMethod.delivery.rawValue ? "Delivery" : "Pickup"))
 
         if order?.deliveryType == DeliveryMethod.delivery.rawValue {
