@@ -8,6 +8,7 @@
 import CoreData
 import IGListKit
 import UIKit
+import PDFKit
 
 class OrderDetailViewController: UIViewController, ListAdapterDataSource {
     lazy var adapter: ListAdapter = {
@@ -26,8 +27,17 @@ class OrderDetailViewController: UIViewController, ListAdapterDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupListdiffable()
-
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(closeScreen(_:)))
+        
+//        if status == .completed {
+//            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.play, target: self, action: #selector(generatePDF(_:)))
+//        }
+        
+        if status == .pending {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(closeScreen(_:)))
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.close, target: self, action: #selector(closeScreen(_:)))
+        }
+        
         navigationItem.rightBarButtonItem?.tintColor = .primary
 
         view.addSubview(collectionView)
@@ -37,35 +47,24 @@ class OrderDetailViewController: UIViewController, ListAdapterDataSource {
 
     private func setupListdiffable() {
         var list: [ListDiffable] = []
-
-        list.append(DataDetailIdentifier("product name", title: "Product Name", value: order?.product?.name ?? ""))
-        list.append(DataDetailIdentifier("quantity", title: "Quantity", value: "\(String(describing: order?.product?.quantity ?? 0)) pcs"))
-        list.append(DataDetailIdentifier("customer", title: "Customer", value: "\(order?.customer?.name ?? "Customer Name")"))
-        list.append(DataDetailIdentifier("method", title: "Delivery Method", value: order?.deliveryType == DeliveryMethod.delivery.rawValue ? "Delivery" : "Pickup"))
-
-        if order?.deliveryType == DeliveryMethod.delivery.rawValue {
-            list.append(DataDetailIdentifier("delivery 1", title: "Delivery Address 1", value: order?.delivery?.address1 ?? "Empty Address"))
-            list.append(DataDetailIdentifier("delivery 2", title: "Delivery Address 2", value: order?.delivery?.address2 ?? "Empty Address"))
-            list.append(DataDetailIdentifier("delivery 3", title: "Delivery Address 3", value: order?.delivery?.address3 ?? "Empty Address"))
-        } else if order?.deliveryType == DeliveryMethod.pickup.rawValue {
-            list.append(DataDetailIdentifier("pickup 1", title: "Pickup Address 1", value: order?.pickup?.pickup1 ?? ""))
-            list.append(DataDetailIdentifier("pickup 2", title: "Pickup Address 2", value: order?.pickup?.pickup2 ?? ""))
-            list.append(DataDetailIdentifier("pickup 3", title: "Pickup Address 3", value: order?.pickup?.pickup3 ?? ""))
-        }
-        list.append(DataDetailIdentifier("prepaid", title: "Prepaid", value: order?.isPrepaid ?? false ? "Yes" : "No"))
-
-        if order?.isPrepaid ?? false {
-            list.append(DataDetailIdentifier("bank 1", title: "Bank 1", value: order?.bank?.bank1 ?? ""))
-            list.append(DataDetailIdentifier("bank 2", title: "Bank 2", value: order?.bank?.bank2 ?? ""))
-        }
-
-        list.append(DataDetailIdentifier("notes", title: "Notes", value: order?.notes?.isEmpty ?? true ? "No notes" : order?.notes ?? ""))
-        list.append(DataDetailIdentifier("status", title: "Status", value: status?.rawValue ?? ""))
-
         
-        if status == .pending {
-            list.append(ButtonIdentifier("complete pending order", title: "Complete"))
-            list.append(ButtonIdentifier("cancel pending order", title: "Cancel", type: .secondary))
+        if let order = order {
+            list.append(DataDetailIdentifier("product name", title: "Product Name", value: order.name ?? ""))
+            list.append(DataDetailIdentifier("quantity", title: "Quantity", value: "\(String(describing: order.quantity )) pcs"))
+            list.append(DataDetailIdentifier("customer", title: "Customer", value: "\(order.customer?.name ?? "Customer Name")"))
+            list.append(DataDetailIdentifier("delivery method", title: "Delivery Method", value: order.delivery?.value ?? ""))
+            list.append(DataDetailIdentifier("pickup method", title: "Pickup Method", value: order.pickup?.value ?? ""))
+
+            list.append(DataDetailIdentifier("prepaid", title: "Prepaid", value: order.isPrepaid ? order.prepaid?.value ?? "" : "No Prepaid"))
+
+            list.append(DataDetailIdentifier("notes", title: "Notes", value: order.notes?.isEmpty ?? true ? "No notes" : order.notes ?? ""))
+            list.append(DataDetailIdentifier("status", title: "Status", value: status?.rawValue ?? ""))
+            
+            if status == .pending {
+                list.append(ButtonIdentifier("complete pending order", title: "Complete"))
+                list.append(ButtonIdentifier("cancel pending order", title: "Cancel", type: .secondary))
+            }
+
         }
 
         listDiffable = list
@@ -108,6 +107,41 @@ class OrderDetailViewController: UIViewController, ListAdapterDataSource {
     @objc func closeScreen(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
+    
+    @objc func generatePDF(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    func createFlyer() -> Data {
+      // 1
+      let pdfMetaData = [
+        kCGPDFContextCreator: "Flyer Builder",
+        kCGPDFContextAuthor: "raywenderlich.com"
+      ]
+      let format = UIGraphicsPDFRendererFormat()
+      format.documentInfo = pdfMetaData as [String: Any]
+
+      // 2
+      let pageWidth = 8.5 * 72.0
+      let pageHeight = 11 * 72.0
+      let pageRect = CGRect(x: 0, y: 0, width: pageWidth, height: pageHeight)
+
+      // 3
+      let renderer = UIGraphicsPDFRenderer(bounds: pageRect, format: format)
+      // 4
+      let data = renderer.pdfData { (context) in
+        // 5
+        context.beginPage()
+        // 6
+        let attributes = [
+          NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 72)
+        ]
+        let text = "I'm a PDF!"
+        text.draw(at: CGPoint(x: 0, y: 0), withAttributes: attributes)
+      }
+
+      return data
+    }
 }
 
 extension OrderDetailViewController: ButtonSectionControllerDelegate {
@@ -118,7 +152,7 @@ extension OrderDetailViewController: ButtonSectionControllerDelegate {
         }))
         alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { _ in
             if let order = self.order {
-                CoreDataManager.shared.completePendingOrder(item: order)
+                CoreDataManager.shared.completePendingOrder(item: order, product: order.product ?? Product())
             }
             self.delegate?.reloadData()
             self.dismiss(animated: true)

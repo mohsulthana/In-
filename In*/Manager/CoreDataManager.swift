@@ -49,7 +49,24 @@ final class CoreDataManager {
         }
     }
     
-    func completePendingOrder(item: Order) {
+    func completePendingOrder(item: Order, product: Product) {
+        let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
+        let predicate = NSPredicate(format: "name == %@", item.name ?? "")
+        fetchRequest.returnsObjectsAsFaults = false
+        fetchRequest.predicate = predicate
+        
+        persistentContainer.viewContext.perform {
+            do {
+                let result = try fetchRequest.execute()
+                
+                if result.first?.quantity == 0 {
+                    NotificationManager().sendNotification(product: result.first?.name)
+                }
+            } catch {
+                print("Unable to Execute Fetch Request, \(error)")
+            }
+        }
+        
         let order = item
         order.status = "completed"
         

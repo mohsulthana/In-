@@ -10,16 +10,6 @@ import IGListKit
 import UIKit
 import UIMagicDropDown
 
-enum TextfieldId: String {
-    case productName
-    case deliveryOne, deliveryTwo, deliveryThree
-    case pickupOne, pickupTwo, pickupThree
-    case bankOne, bankTwo
-    case quantity
-    case notes
-    case customerName
-}
-
 final class PurchaseProductViewController: UIViewController, ListAdapterDataSource {
     let managedObjectContext = CoreDataManager.shared.persistentContainer.viewContext
 
@@ -36,19 +26,14 @@ final class PurchaseProductViewController: UIViewController, ListAdapterDataSour
     // form value
     var quantity: Int?
     var deliveryMethod: String?
+    var pickupMethod: String?
+    var prepaidMethod: String?
 
     var isPrepaid: Bool = false
 
-    var delivery1: String?
-    var delivery2: String?
-    var delivery3: String?
-
-    var pickup1: String?
-    var pickup2: String?
-    var pickup3: String?
-
-    var bank1: String?
-    var bank2: String?
+    var deliveryValue: String?
+    var pickupValue: String?
+    var prepaidValue: String?
 
     var notes: String?
     
@@ -70,29 +55,51 @@ final class PurchaseProductViewController: UIViewController, ListAdapterDataSour
     @objc func closeScreen(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
+    
+    private let deliveryOptionsDataSource = [
+        UIMagicDropdownData(label: DeliveryMethod.knutsfor.rawValue, value: DeliveryMethod.knutsfor.rawValue),
+        UIMagicDropdownData(label: DeliveryMethod.bearer.rawValue, value: DeliveryMethod.bearer.rawValue),
+        UIMagicDropdownData(label: DeliveryMethod.zipmail.rawValue, value: DeliveryMethod.zipmail.rawValue),
+        UIMagicDropdownData(label: DeliveryMethod.other.rawValue, value: DeliveryMethod.other.rawValue),
+    ]
+    
+    private let pickupOptionsDataSource = [
+        UIMagicDropdownData(label: PickupMethod.hwt.rawValue, value: PickupMethod.hwt.rawValue),
+        UIMagicDropdownData(label: PickupMethod.spanishTown.rawValue, value: PickupMethod.spanishTown.rawValue),
+        UIMagicDropdownData(label: PickupMethod.other.rawValue, value: PickupMethod.other.rawValue),
+    ]
+    
+    private let prepaidOptionsDataSource = [
+        UIMagicDropdownData(label: PrepaidMethod.ncb.rawValue, value: PrepaidMethod.ncb.rawValue),
+        UIMagicDropdownData(label: PrepaidMethod.scotiaBank.rawValue, value: PrepaidMethod.scotiaBank.rawValue),
+        UIMagicDropdownData(label: PrepaidMethod.other.rawValue, value: PrepaidMethod.other.rawValue),
+    ]
 
     private func setupListdiffable() {
         var list: [ListDiffable] = []
         list.append(TextfieldIdentifier(TextfieldId.productName.rawValue, placeholder: "Product Name", value: product?.name, isEnabled: false))
         list.append(TextfieldIdentifier(TextfieldId.customerName.rawValue, placeholder: "Customer Name"))
         list.append(StepperIdentifier("quantity", label: "Quantity", maxValue: Int(product?.quantity ?? 10)))
-        list.append(DropdownIdentifier())
+        list.append(DropdownIdentifier("delivery dropdown", data: deliveryOptionsDataSource, height: 270))
 
-        if deliveryMethod == DeliveryMethod.delivery.rawValue {
-            list.append(TextfieldIdentifier(TextfieldId.deliveryOne.rawValue, placeholder: "Delivery 1"))
-            list.append(TextfieldIdentifier(TextfieldId.deliveryTwo.rawValue, placeholder: "Delivery 2"))
-            list.append(TextfieldIdentifier(TextfieldId.deliveryThree.rawValue, placeholder: "Delivery 3"))
-        } else if deliveryMethod == DeliveryMethod.pickup.rawValue {
-            list.append(TextfieldIdentifier(TextfieldId.pickupOne.rawValue, placeholder: "Pickup 1"))
-            list.append(TextfieldIdentifier(TextfieldId.pickupTwo.rawValue, placeholder: "Pickup 2"))
-            list.append(TextfieldIdentifier(TextfieldId.pickupThree.rawValue, placeholder: "Pickup 3"))
+        if deliveryMethod == DeliveryMethod.other.rawValue {
+            list.append(TextfieldIdentifier(TextfieldId.deliveryMethod.rawValue, placeholder: "Other Delivery"))
+        }
+        
+        list.append(DropdownIdentifier("pickup dropdown", data: pickupOptionsDataSource))
+        
+        if pickupMethod == PickupMethod.other.rawValue {
+            list.append(TextfieldIdentifier(TextfieldId.pickupMethod.rawValue, placeholder: "Other Pickup"))
         }
 
         list.append(SwitchIdentifier(label: "Prepaid"))
 
         if isPrepaid {
-            list.append(TextfieldIdentifier(TextfieldId.bankOne.rawValue, placeholder: "Bank 1"))
-            list.append(TextfieldIdentifier(TextfieldId.bankTwo.rawValue, placeholder: "Bank 2"))
+            list.append(DropdownIdentifier("prepaid dropdown", data: prepaidOptionsDataSource))
+        }
+        
+        if prepaidMethod == PrepaidMethod.other.rawValue {
+            list.append(TextfieldIdentifier(TextfieldId.prepaidMethod.rawValue, placeholder: "Other Prepaid"))
         }
 
         list.append(TextfieldIdentifier(TextfieldId.notes.rawValue, placeholder: "Notes"))
@@ -158,30 +165,26 @@ extension PurchaseProductViewController: SwitchSectionControllerDelegate {
 }
 
 extension PurchaseProductViewController: DropdownSectionControllerDelegate {
-    func dropdownValueChanged(_ item: String) {
-        deliveryMethod = item
+    func dropdownValueChanged(_ id: String, _ item: String) {
+        if id == "delivery dropdown" {
+            deliveryMethod = item
+        } else if id == "pickup dropdown" {
+            pickupMethod = item
+        } else if id == "prepaid dropdown" {
+            prepaidMethod = item
+        }
         performUpdates()
     }
 }
 
 extension PurchaseProductViewController: TextSectionDelegate {
     func textfieldSectionTapped(_ id: String, value: String) {
-        if id == TextfieldId.deliveryOne.rawValue {
-            delivery1 = value
-        } else if id == TextfieldId.deliveryTwo.rawValue {
-            delivery2 = value
-        } else if id == TextfieldId.deliveryThree.rawValue {
-            delivery3 = value
-        } else if id == TextfieldId.pickupOne.rawValue {
-            pickup1 = value
-        } else if id == TextfieldId.pickupTwo.rawValue {
-            pickup2 = value
-        } else if id == TextfieldId.pickupThree.rawValue {
-            pickup3 = value
-        } else if id == TextfieldId.bankOne.rawValue {
-            bank1 = value
-        } else if id == TextfieldId.bankTwo.rawValue {
-            bank2 = value
+        if id == TextfieldId.deliveryMethod.rawValue {
+            deliveryValue = value
+        } else if id == TextfieldId.pickupMethod.rawValue {
+            pickupValue = value
+        } else if id == TextfieldId.prepaidMethod.rawValue {
+            prepaidValue = value
         } else if id == TextfieldId.notes.rawValue {
             notes = value
         } else if id == TextfieldId.quantity.rawValue {
@@ -200,7 +203,7 @@ extension PurchaseProductViewController: ButtonSectionControllerDelegate {
         do {
             let result = try managedObjectContext.fetch(fetchRequest)
             let managedObject = result[0] as! NSManagedObject
-            let quantity = managedObject.value(forKey: "quantity") as! Int16 - Int16(quantity ?? 0)
+            let quantity = managedObject.value(forKey: "quantity") as! Int16 - Int16(quantity ?? 1)
             managedObject.setValue(quantity, forKey: "quantity")
         } catch let error as NSError {
             print(error)
@@ -209,26 +212,30 @@ extension PurchaseProductViewController: ButtonSectionControllerDelegate {
 
     private func insertPurchasedData() {
         // core data object
-        let deliveryObject = DeliveryAddress(context: managedObjectContext)
-        let pickupObject = PickupAddress(context: managedObjectContext)
-        let bankObject = Bank(context: managedObjectContext)
+        let deliveryObject = Delivery(context: managedObjectContext)
+        let pickupObject = Pickup(context: managedObjectContext)
+        let prepaidObject = Prepaid(context: managedObjectContext)
         let customerObject = Customer(context: managedObjectContext)
         
-        customerObject.name = customerName
-
-        if deliveryMethod == DeliveryMethod.delivery.rawValue {
-            deliveryObject.address1 = delivery1
-            deliveryObject.address2 = delivery2
-            deliveryObject.address3 = delivery3
-        } else if deliveryMethod == DeliveryMethod.pickup.rawValue {
-            pickupObject.pickup1 = pickup1
-            pickupObject.pickup2 = pickup2
-            pickupObject.pickup3 = pickup3
+        if deliveryMethod != DeliveryMethod.other.rawValue {
+            deliveryValue = deliveryMethod
         }
+        
+        if pickupMethod != PickupMethod.other.rawValue {
+            pickupValue = pickupMethod
+        }
+        
+        if prepaidMethod != PrepaidMethod.other.rawValue {
+            prepaidValue = prepaidMethod
+        }
+        
+        customerObject.name = customerName
+        pickupObject.value = pickupValue
+        deliveryObject.value = deliveryValue
+        prepaidObject.value = prepaidValue
 
         if isPrepaid {
-            bankObject.bank1 = bank1
-            bankObject.bank2 = bank2
+            prepaidObject.value = prepaidValue
         }
 
         let orderObject = Order(context: managedObjectContext)
@@ -236,12 +243,11 @@ extension PurchaseProductViewController: ButtonSectionControllerDelegate {
         orderObject.product = product
         orderObject.id = UUID().uuidString
         orderObject.name = product?.name
-        orderObject.quantity = Int16(quantity ?? 0)
-        orderObject.deliveryType = deliveryMethod
+        orderObject.quantity = Int16(quantity ?? 1)
         orderObject.status = "pending"
         orderObject.delivery = deliveryObject
         orderObject.pickup = pickupObject
-        orderObject.bank = bankObject
+        orderObject.prepaid = prepaidObject
         orderObject.notes = notes
         orderObject.isPrepaid = isPrepaid
         orderObject.customer = customerObject

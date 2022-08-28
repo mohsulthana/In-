@@ -9,7 +9,7 @@ import IGListKit
 import UIMagicDropDown
 
 protocol DropdownSectionControllerDelegate: AnyObject {
-    func dropdownValueChanged(_ item: String)
+    func dropdownValueChanged(_ id: String, _ item: String)
 }
 
 class DropdownSectionController: ListSectionController {
@@ -26,13 +26,14 @@ class DropdownSectionController: ListSectionController {
     
     override func sizeForItem(at index: Int) -> CGSize {
         let collectionContext = collectionContext
-        return CGSize(width: collectionContext?.containerSize.width ?? 0, height: isExpanded ? 200 : 70)
+        return CGSize(width: collectionContext?.containerSize.width ?? 0, height: isExpanded ? CGFloat(identifier?.height ?? 230) : 70)
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell: DropdownCollectionViewCell = collectionContext.dequeueReusableCell(withNibName: "DropdownCollectionViewCell", bundle: nil, for: self, at: index)
         cell.delegate = self
         cell.view = view
+        cell.identifier = identifier
         cell.expanded = !isExpanded
         return cell
     }
@@ -51,22 +52,33 @@ extension DropdownSectionController: DropdownDelegate {
         self.isExpanded = !expanded
     }
     
-    func triggerChanges(_ item: String) {
-        delegate?.dropdownValueChanged(item)
+    func triggerChanges(_ id: String, _ item: String) {
+        delegate?.dropdownValueChanged(id, item)
     }
 }
 
 final class DropdownIdentifier: ListDiffable {
     
+    let id: String
     let placeholder: String = "Haha"
+    let height: Int?
+    let data: [UIMagicDropdownData]
+    
+    init(_ id: String, data: [UIMagicDropdownData], height: Int? = 230) {
+        self.id = id
+        self.data = data
+        self.height = height
+    }
     
     func diffIdentifier() -> NSObjectProtocol {
-        return placeholder as NSObjectProtocol
+        return id as NSObjectProtocol
     }
     
     func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
         guard self !== object else { return true }
         guard let object = object as? DropdownIdentifier else { return false }
-        return placeholder == object.placeholder
+        return id == object.id &&
+        placeholder == object.placeholder &&
+        height == object.height
     }
 }

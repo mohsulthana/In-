@@ -60,6 +60,10 @@
 		17C13B0C28A56C88008B49FC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C13B0B28A56C88008B49FC /* CoreDataManager.swift */; };
 		17C5C6E428A6507A0009DBF0 /* Extension+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C5C6E328A6507A0009DBF0 /* Extension+UITableView.swift */; };
 		17D5BECF28A8F5DB0052230A /* SimpleCheckbox in Frameworks */ = {isa = PBXBuildFile; productRef = 17D5BECE28A8F5DB0052230A /* SimpleCheckbox */; };
+		17F8CF1128BA0BC5003B7772 /* DeliveryMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8CF1028BA0BC5003B7772 /* DeliveryMethod.swift */; };
+		17F8CF1328BA0BD0003B7772 /* PickupMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8CF1228BA0BD0003B7772 /* PickupMethod.swift */; };
+		17F8CF1628BA0C21003B7772 /* PrepaidMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8CF1528BA0C21003B7772 /* PrepaidMethod.swift */; };
+		17F8CF1828BA0CB0003B7772 /* TextfieldId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8CF1728BA0CB0003B7772 /* TextfieldId.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +117,10 @@
 		17A50ADC28A5F91D00402A72 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		17C13B0B28A56C88008B49FC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		17C5C6E328A6507A0009DBF0 /* Extension+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITableView.swift"; sourceTree = "<group>"; };
+		17F8CF1028BA0BC5003B7772 /* DeliveryMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryMethod.swift; sourceTree = "<group>"; };
+		17F8CF1228BA0BD0003B7772 /* PickupMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupMethod.swift; sourceTree = "<group>"; };
+		17F8CF1528BA0C21003B7772 /* PrepaidMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepaidMethod.swift; sourceTree = "<group>"; };
+		17F8CF1728BA0CB0003B7772 /* TextfieldId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextfieldId.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +195,10 @@
 		1735AA1328B26BE700F6D3C3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				17F8CF1028BA0BC5003B7772 /* DeliveryMethod.swift */,
+				17F8CF1228BA0BD0003B7772 /* PickupMethod.swift */,
+				17F8CF1528BA0C21003B7772 /* PrepaidMethod.swift */,
+				17F8CF1728BA0CB0003B7772 /* TextfieldId.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -466,8 +478,12 @@
 				1771E6F3289D7BE500AAFC78 /* In.xcdatamodeld in Sources */,
 				173CB5A728B60900002257F3 /* EditProductViewController.swift in Sources */,
 				1743DB7628B374CF00D6682C /* ButtonCollectionViewCell.swift in Sources */,
+				17F8CF1828BA0CB0003B7772 /* TextfieldId.swift in Sources */,
 				1735AA1128B26AEA00F6D3C3 /* DropdownCollectionViewCell.swift in Sources */,
 				17748AC728B0F2870037D25D /* PrepaidBankCollectionViewCell.swift in Sources */,
+				17F8CF1628BA0C21003B7772 /* PrepaidMethod.swift in Sources */,
+				17F8CF1328BA0BD0003B7772 /* PickupMethod.swift in Sources */,
+				17F8CF1128BA0BC5003B7772 /* DeliveryMethod.swift in Sources */,
 				1771DB4328A939A200254C2F /* CompletedOrderViewController.swift in Sources */,
 				1771E6DC289D619200AAFC78 /* SceneDelegate.swift in Sources */,
 				1775549828B21450006537A3 /* Extension+ListAdapter.swift in Sources */,

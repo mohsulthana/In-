@@ -32,6 +32,7 @@ class StepperCollectionViewCell: UICollectionViewCell {
         textFieldToolbar.barStyle = .default
         textFieldToolbar.items = [flexibleButton, doneButton]
         textFieldToolbar.sizeToFit()
+        stepperValueTextField.delegate = self
         stepperValueTextField.inputAccessoryView = textFieldToolbar
     }
     
@@ -48,12 +49,26 @@ class StepperCollectionViewCell: UICollectionViewCell {
         setupDoneToolbar()
         stepperLabel.text = identifier?.label
         stepper.maximumValue = Double(identifier?.maxValue ?? 10)
-        stepper.value = Double(identifier?.value ?? 0)
+        stepper.value = Double(identifier?.value ?? 1)
         stepperValueTextField.text = Int(stepper.value).description
     }
     
     private func submitTextfieldValue() {
         stepperValueTextField.resignFirstResponder()
-        view?.textfieldSectionTapped(identifier?.id ?? "", value: stepperValueTextField.text ?? "")
+        view?.textfieldSectionTapped(identifier?.id ?? "", value: "\(Int(stepper.value))")
+    }
+}
+
+extension StepperCollectionViewCell: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let value = Double(textField.text ?? "0"), value == 0 {
+            stepper.value = 0
+            stepperValueTextField.text = Int(stepper.value).description
+        }
+        
+        if let value = Double(textField.text ?? "0"), value > stepper.maximumValue {
+            stepper.value = Double(textField.text ?? "0") ?? 0
+            stepperValueTextField.text = Int(stepper.value).description
+        }
     }
 }

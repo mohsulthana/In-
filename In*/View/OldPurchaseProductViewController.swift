@@ -230,7 +230,6 @@ class OldPurchaseProductViewController: UIViewController {
         purchasedData.id = UUID().uuidString
         purchasedData.name = nameTextField.text ?? ""
         purchasedData.quantity = Int16(quantityStepper.value)
-        purchasedData.deliveryType = deliveryType ?? "delivery"
         purchasedData.status = "pending"
         
         do {

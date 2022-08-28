@@ -8,24 +8,24 @@
 import UIKit
 import UIMagicDropDown
 
-enum DeliveryMethod: String {
-    case delivery = "delivery"
-    case pickup = "pickup"
-}
-
 protocol DropdownDelegate: AnyObject {
-    func triggerChanges(_ item: String)
+    func triggerChanges(_ id: String, _ item: String)
     func dropdownExpanded(_ expanded: Bool)
 }
 
 class DropdownCollectionViewCell: UICollectionViewCell, UIMagicDropDownDelegate {
+    weak var identifier: DropdownIdentifier? {
+        didSet {
+            setupView()
+        }
+    }
     weak var view: PurchaseProductViewController?
     weak var delegate: DropdownDelegate?
     var expanded: Bool?
     
     func dropDownSelected(_ item: UIMagicDropdownData, _ sender: UIMagicDropdown) {
         delegate?.dropdownExpanded(expanded!)
-        delegate?.triggerChanges(item.value as? String ?? "")
+        delegate?.triggerChanges(identifier?.id ?? "", item.value as? String ?? "")
     }
     
     func dropdownExpanded(_ sender: UIMagicDropdown) {
@@ -39,16 +39,15 @@ class DropdownCollectionViewCell: UICollectionViewCell, UIMagicDropDownDelegate 
 
     @IBOutlet weak var dropdown: UIMagicDropdown!
     
-    private let dropdownOptionsDataSource = [
-        UIMagicDropdownData(label: "Delivery", value: DeliveryMethod.delivery.rawValue),
-        UIMagicDropdownData(label: "Pickup", value: DeliveryMethod.pickup.rawValue),
-    ]
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        dropdown.items = dropdownOptionsDataSource
+        setupView()
+    }
+    
+    private func setupView() {
+        dropdown.items = identifier?.data
         dropdown.dropDownDelegate = self
-        dropdown.hintMessage = "Select Delivery Method"
+        dropdown.hintMessage = "Select \(String(describing: identifier?.id.capitalized ?? ""))"
         dropdown.frame = contentView.bounds
     }
     

@@ -214,7 +214,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
                 }))
                 alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { action in
                     let pendingOrder = self.pendingItems[indexPath.row]
-                    CoreDataManager.shared.completePendingOrder(item: pendingOrder)
+                    CoreDataManager.shared.completePendingOrder(item: pendingOrder, product: pendingOrder.product ?? Product())
                     self.fetchOrder()
                 }))
                 self.present(alert, animated: true, completion: nil)

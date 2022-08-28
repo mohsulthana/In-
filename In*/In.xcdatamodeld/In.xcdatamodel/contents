@@ -1,39 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21G83" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Bank" representedClassName="Bank" syncable="YES" codeGenerationType="class">
-        <attribute name="bank1" optional="YES" attributeType="String"/>
-        <attribute name="bank2" optional="YES" attributeType="String"/>
-        <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="bank" inverseEntity="Order"/>
-    </entity>
     <entity name="Customer" representedClassName="Customer" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="customer" inverseEntity="Order"/>
     </entity>
-    <entity name="DeliveryAddress" representedClassName="DeliveryAddress" syncable="YES" codeGenerationType="class">
-        <attribute name="address1" optional="YES" attributeType="String"/>
-        <attribute name="address2" optional="YES" attributeType="String"/>
-        <attribute name="address3" optional="YES" attributeType="String"/>
+    <entity name="Delivery" representedClassName="Delivery" syncable="YES" codeGenerationType="class">
+        <attribute name="value" optional="YES" attributeType="String"/>
         <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="delivery" inverseEntity="Order"/>
     </entity>
     <entity name="Order" representedClassName="Order" syncable="YES" codeGenerationType="class">
-        <attribute name="deliveryType" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="isPrepaid" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
         <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="status" optional="YES" attributeType="String"/>
-        <relationship name="bank" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bank" inverseName="order" inverseEntity="Bank"/>
         <relationship name="customer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Customer" inverseName="order" inverseEntity="Customer"/>
-        <relationship name="delivery" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DeliveryAddress" inverseName="order" inverseEntity="DeliveryAddress"/>
-        <relationship name="pickup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PickupAddress" inverseName="order" inverseEntity="PickupAddress"/>
+        <relationship name="delivery" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Delivery" inverseName="order" inverseEntity="Delivery"/>
+        <relationship name="pickup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pickup" inverseName="order" inverseEntity="Pickup"/>
+        <relationship name="prepaid" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Prepaid" inverseName="order" inverseEntity="Prepaid"/>
         <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="order" inverseEntity="Product"/>
     </entity>
-    <entity name="PickupAddress" representedClassName="PickupAddress" syncable="YES" codeGenerationType="class">
-        <attribute name="pickup1" optional="YES" attributeType="String"/>
-        <attribute name="pickup2" optional="YES" attributeType="String"/>
-        <attribute name="pickup3" optional="YES" attributeType="String"/>
+    <entity name="Pickup" representedClassName="Pickup" syncable="YES" codeGenerationType="class">
+        <attribute name="value" optional="YES" attributeType="String"/>
         <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="pickup" inverseEntity="Order"/>
+    </entity>
+    <entity name="Prepaid" representedClassName="Prepaid" syncable="YES" codeGenerationType="class">
+        <attribute name="value" optional="YES" attributeType="String"/>
+        <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="prepaid" inverseEntity="Order"/>
     </entity>
     <entity name="Product" representedClassName="Product" syncable="YES" codeGenerationType="class">
         <attribute name="brand" optional="YES" attributeType="String"/>
@@ -45,12 +39,12 @@
     </entity>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class"/>
     <elements>
-        <element name="Bank" positionX="-45" positionY="63" width="128" height="74"/>
-        <element name="DeliveryAddress" positionX="-45" positionY="36" width="128" height="89"/>
-        <element name="Order" positionX="-54" positionY="18" width="128" height="209"/>
-        <element name="PickupAddress" positionX="-36" positionY="54" width="128" height="89"/>
+        <element name="Prepaid" positionX="-45" positionY="63" width="128" height="59"/>
+        <element name="Customer" positionX="-54" positionY="99" width="128" height="59"/>
+        <element name="Delivery" positionX="-45" positionY="36" width="128" height="59"/>
+        <element name="Order" positionX="-54" positionY="18" width="128" height="194"/>
+        <element name="Pickup" positionX="-36" positionY="54" width="128" height="59"/>
         <element name="Product" positionX="-63" positionY="-18" width="128" height="119"/>
         <element name="User" positionX="-63" positionY="-18" width="128" height="29"/>
-        <element name="Customer" positionX="-54" positionY="99" width="128" height="59"/>
     </elements>
 </model>
