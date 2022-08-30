@@ -14,6 +14,7 @@ class InventoryTableViewCell: UITableViewCell {
     @IBOutlet weak var brandValue: UILabel!
     @IBOutlet weak var typeValue: UILabel!
     @IBOutlet weak var arrowIcon: UIImageView!
+    @IBOutlet weak var priceValue: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

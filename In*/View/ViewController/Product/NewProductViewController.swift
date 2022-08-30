@@ -48,6 +48,22 @@ class NewProductViewController: UIViewController {
         return field
     }()
     
+    lazy var priceTextField: UITextField = {
+        let field = UITextField()
+        let prefix = UILabel()
+        prefix.text = "JMD"
+        prefix.sizeToFit()
+        field.borderStyle = .roundedRect
+        field.placeholder = "Price"
+        field.translatesAutoresizingMaskIntoConstraints = false
+        field.rightView = prefix
+        field.rightViewMode = .always
+        field.keyboardType = .decimalPad
+        field.delegate = self
+        field.addDoneToolbar()
+        return field
+    }()
+    
     lazy var submitButton: UIButton = {
         let button = UIButton(type: .roundedRect)
         button.setTitle("Submit", for: .normal)
@@ -82,6 +98,7 @@ class NewProductViewController: UIViewController {
         view.addSubview(quantityTextField)
         view.addSubview(brandTextField)
         view.addSubview(typeTextField)
+        view.addSubview(priceTextField)
     }
     
     func setupButton() {
@@ -106,6 +123,10 @@ class NewProductViewController: UIViewController {
             typeTextField.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             typeTextField.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             
+            priceTextField.topAnchor.constraint(equalTo: typeTextField.bottomAnchor, constant: 24),
+            priceTextField.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            priceTextField.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            
             submitButton.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -24),
             submitButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             submitButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
@@ -123,6 +144,7 @@ class NewProductViewController: UIViewController {
         productData.brand = brandTextField.text ?? ""
         productData.type = typeTextField.text ?? ""
         productData.id = UUID()
+        productData.price = Double(priceTextField.text ?? "") ?? 0
         
         do {
             try managedObjectContext.save()
@@ -131,5 +153,11 @@ class NewProductViewController: UIViewController {
         } catch {
             print("Unable to save customer data, \(error)")
         }
+    }
+}
+
+extension NewProductViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return true
     }
 }

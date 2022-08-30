@@ -28,6 +28,7 @@ class EditProductViewController: UIViewController, ListAdapterDataSource {
     var updatedBrand: String?
     var updatedQuantity: Int16?
     var updatedType: String?
+    var updatedPrice: Double?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +51,7 @@ class EditProductViewController: UIViewController, ListAdapterDataSource {
         list.append(StepperIdentifier("quantity", label: "Quantity", maxValue: 10000000, value: product?.quantity ?? 0))
         list.append(TextfieldIdentifier("brand", placeholder: "Write your brand", value: product?.brand, isEnabled: true))
         list.append(TextfieldIdentifier("type", placeholder: "Write your type", value: product?.type, isEnabled: true))
+        list.append(TextfieldIdentifier("price", placeholder: "Write your price", value: "\(String(describing: Int(product?.price ?? 0)))", isEnabled: true))
         
         listDiffable = list
     }
@@ -96,6 +98,7 @@ class EditProductViewController: UIViewController, ListAdapterDataSource {
         let quantity = updatedQuantity ?? product?.quantity
         let brand = updatedBrand ?? product?.brand
         let type = updatedType ?? product?.type
+        let price = updatedPrice ?? product?.price
         
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Product")
@@ -108,6 +111,7 @@ class EditProductViewController: UIViewController, ListAdapterDataSource {
             managedObject.setValue(quantity, forKey: "quantity")
             managedObject.setValue(brand, forKey: "brand")
             managedObject.setValue(type, forKey: "type")
+            managedObject.setValue(price, forKey: "price")
             
             try managedObjectContext.save()
         } catch let error as NSError {
@@ -129,6 +133,8 @@ extension EditProductViewController: TextSectionDelegate {
             updatedBrand = value
         } else if id == "type" {
             updatedType = value
+        } else if id == "price" {
+            updatedPrice = Double(value)
         }
     }
 }

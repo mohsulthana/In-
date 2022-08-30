@@ -28,9 +28,9 @@ class OrderDetailViewController: UIViewController, ListAdapterDataSource {
         super.viewDidLoad()
         setupListdiffable()
         
-//        if status == .completed {
-//            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.play, target: self, action: #selector(generatePDF(_:)))
-//        }
+        if status == .completed {
+            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.play, target: self, action: #selector(generatePDF(_:)))
+        }
         
         if status == .pending {
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(closeScreen(_:)))
@@ -59,6 +59,7 @@ class OrderDetailViewController: UIViewController, ListAdapterDataSource {
 
             list.append(DataDetailIdentifier("notes", title: "Notes", value: order.notes?.isEmpty ?? true ? "No notes" : order.notes ?? ""))
             list.append(DataDetailIdentifier("status", title: "Status", value: status?.rawValue ?? ""))
+            list.append(DataDetailIdentifier("total price", title: "Total Price", value: "$\(Int(order.totalPrice))" ))
             
             if status == .pending {
                 list.append(ButtonIdentifier("complete pending order", title: "Complete"))

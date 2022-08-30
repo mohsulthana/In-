@@ -133,16 +133,19 @@ extension ProductViewController: UITableViewDelegate, UITableViewDataSource {
         let quantity = searchResult.count > 0 ? searchResult[indexPath.row].quantity : products[indexPath.row].quantity
         let brand = searchResult.count > 0 ? searchResult[indexPath.row].brand : products[indexPath.row].brand
         let type = searchResult.count > 0 ? searchResult[indexPath.row].type : products[indexPath.row].type
-
+        let price = searchResult.count > 0 ? searchResult[indexPath.row].price : products[indexPath.row].price
+        
         cell.displayValue.text = productName
         cell.quantityValue.text = quantity == 0 ? "\(quantity) pcs. (Out of stock)" : "\(quantity) pcs"
         cell.brandValue.text = "Brand \(String(describing: brand ?? ""))"
         cell.typeValue.text = "Type \(String(describing: type ?? ""))"
+        cell.priceValue.text = "$\(price)"
         
         cell.displayValue.textColor = .primary
         cell.quantityValue.textColor =  quantity == 0 ? .systemRed : .secondaryLabel
         cell.brandValue.textColor = .label
         cell.typeValue.textColor = .tertiaryLabel
+        cell.priceValue.textColor = .label
         return cell
     }
 
@@ -170,7 +173,8 @@ extension ProductViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let editAction = UIContextualAction(style: .normal, title: "Edit") { _, _, completionHandler in
             let editProduct = EditProductViewController()
-            editProduct.product = self.products[indexPath.row]
+            let productsArray = self.products.sorted { $0.name?.lowercased() ?? "" < $1.name?.lowercased() ?? "" }
+            editProduct.product = productsArray[indexPath.row]
             editProduct.row = indexPath
             editProduct.vc = self
             self.present(UINavigationController(rootViewController: editProduct), animated: true, completion: nil)

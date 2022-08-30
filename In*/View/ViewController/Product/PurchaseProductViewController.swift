@@ -233,6 +233,7 @@ extension PurchaseProductViewController: ButtonSectionControllerDelegate {
         pickupObject.value = pickupValue
         deliveryObject.value = deliveryValue
         prepaidObject.value = prepaidValue
+        
 
         if isPrepaid {
             prepaidObject.value = prepaidValue
@@ -251,6 +252,7 @@ extension PurchaseProductViewController: ButtonSectionControllerDelegate {
         orderObject.notes = notes
         orderObject.isPrepaid = isPrepaid
         orderObject.customer = customerObject
+        orderObject.totalPrice = Double((quantity ?? 1) * Int(product?.price ?? 0))
 
         updateProductQuantity()
 
