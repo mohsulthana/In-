@@ -53,7 +53,10 @@
 		178A365128A80738007924AC /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A365028A80738007924AC /* Extension+UITextField.swift */; };
 		178A365328A81BE7007924AC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A365228A81BE7007924AC /* LoginViewController.swift */; };
 		178A365528A81BF1007924AC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A365428A81BF1007924AC /* SignUpViewController.swift */; };
+		178B6C4328C3809F00C878B1 /* PDFPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178B6C4228C3809F00C878B1 /* PDFPreviewViewController.swift */; };
+		178B6C4628C3AD7200C878B1 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 178B6C4528C3AD7200C878B1 /* IQKeyboardManagerSwift */; };
 		178CDDD028B8F1BE00B5C0A6 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178CDDCF28B8F1BE00B5C0A6 /* NotificationManager.swift */; };
+		17A3F07A28C09B7F00E434BD /* PDFCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A3F07928C09B7F00E434BD /* PDFCreator.swift */; };
 		17A50AD928A5835000402A72 /* NewProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A50AD828A5835000402A72 /* NewProductViewController.swift */; };
 		17A50ADB28A5F7D700402A72 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A50ADA28A5F7D700402A72 /* TabBarViewController.swift */; };
 		17A50ADD28A5F91D00402A72 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A50ADC28A5F91D00402A72 /* DashboardViewController.swift */; };
@@ -110,8 +113,10 @@
 		178A365028A80738007924AC /* Extension+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITextField.swift"; sourceTree = "<group>"; };
 		178A365228A81BE7007924AC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		178A365428A81BF1007924AC /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		178B6C4228C3809F00C878B1 /* PDFPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPreviewViewController.swift; sourceTree = "<group>"; };
 		178CDDCE28B8C26000B5C0A6 /* In*.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "In*.entitlements"; sourceTree = "<group>"; };
 		178CDDCF28B8F1BE00B5C0A6 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		17A3F07928C09B7F00E434BD /* PDFCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCreator.swift; sourceTree = "<group>"; };
 		17A50AD828A5835000402A72 /* NewProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProductViewController.swift; sourceTree = "<group>"; };
 		17A50ADA28A5F7D700402A72 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		17A50ADC28A5F91D00402A72 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				178B6C4628C3AD7200C878B1 /* IQKeyboardManagerSwift in Frameworks */,
 				178367B628A9B7410081F48E /* IGListDiffKit in Frameworks */,
 				178367B828A9B7410081F48E /* IGListKit in Frameworks */,
 				17D5BECF28A8F5DB0052230A /* SimpleCheckbox in Frameworks */,
@@ -199,6 +205,7 @@
 				17F8CF1228BA0BD0003B7772 /* PickupMethod.swift */,
 				17F8CF1528BA0C21003B7772 /* PrepaidMethod.swift */,
 				17F8CF1728BA0CB0003B7772 /* TextfieldId.swift */,
+				17A3F07928C09B7F00E434BD /* PDFCreator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -208,6 +215,7 @@
 			children = (
 				1771DB4228A939A200254C2F /* CompletedOrderViewController.swift */,
 				173CB5AC28B63615002257F3 /* OrderDetailViewController.swift */,
+				178B6C4228C3809F00C878B1 /* PDFPreviewViewController.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -391,6 +399,7 @@
 				178367B928A9B7410081F48E /* IGListSwiftKit */,
 				1775549528B213E5006537A3 /* SwifterSwift */,
 				1735AA1A28B2764C00F6D3C3 /* UIMagicDropDown */,
+				178B6C4528C3AD7200C878B1 /* IQKeyboardManagerSwift */,
 			);
 			productName = "In*";
 			productReference = 1771E6D6289D619200AAFC78 /* 876 Inventory.app */;
@@ -425,6 +434,7 @@
 				178367B428A9B7410081F48E /* XCRemoteSwiftPackageReference "IGListKit" */,
 				1775549428B213E5006537A3 /* XCRemoteSwiftPackageReference "SwifterSwift" */,
 				1735AA1928B2764C00F6D3C3 /* XCRemoteSwiftPackageReference "UIMagicDropDown" */,
+				178B6C4428C3AD7200C878B1 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 1771E6D7289D619200AAFC78 /* Products */;
 			projectDirPath = "";
@@ -461,9 +471,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1735A9FA28B2634300F6D3C3 /* TextFieldSectionController.swift in Sources */,
+				178B6C4328C3809F00C878B1 /* PDFPreviewViewController.swift in Sources */,
 				178A365328A81BE7007924AC /* LoginViewController.swift in Sources */,
 				1775549328B2137C006537A3 /* PurchasedAdapter.swift in Sources */,
 				178A365128A80738007924AC /* Extension+UITextField.swift in Sources */,
+				17A3F07A28C09B7F00E434BD /* PDFCreator.swift in Sources */,
 				1771E6EF289D747000AAFC78 /* InventoryTableViewCell.swift in Sources */,
 				1775548F28B211AF006537A3 /* SwitchSectionController.swift in Sources */,
 				173CB5B428B6827B002257F3 /* DataDetailCollectionViewCell.swift in Sources */,
@@ -640,7 +652,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "In*/In*.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 45N4YCBZCJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "In*/Info.plist";
@@ -655,7 +667,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "mohsulthana.In-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -672,7 +684,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "In*/In*.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 45N4YCBZCJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "In*/Info.plist";
@@ -687,7 +699,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "mohsulthana.In-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -744,6 +756,14 @@
 				kind = branch;
 			};
 		};
+		178B6C4428C3AD7200C878B1 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		17D5BECD28A8F5DB0052230A /* XCRemoteSwiftPackageReference "SimpleCheckbox" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/BeauNouvelle/SimpleCheckbox.git";
@@ -779,6 +799,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 178367B428A9B7410081F48E /* XCRemoteSwiftPackageReference "IGListKit" */;
 			productName = IGListSwiftKit;
+		};
+		178B6C4528C3AD7200C878B1 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 178B6C4428C3AD7200C878B1 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 		17D5BECE28A8F5DB0052230A /* SimpleCheckbox */ = {
 			isa = XCSwiftPackageProductDependency;

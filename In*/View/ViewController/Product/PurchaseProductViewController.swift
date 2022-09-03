@@ -253,6 +253,8 @@ extension PurchaseProductViewController: ButtonSectionControllerDelegate {
         orderObject.isPrepaid = isPrepaid
         orderObject.customer = customerObject
         orderObject.totalPrice = Double((quantity ?? 1) * Int(product?.price ?? 0))
+        orderObject.invoice = Int16(random(digits: 8)) ?? 0
+        orderObject.createdOn = Date()
 
         updateProductQuantity()
 
@@ -267,5 +269,13 @@ extension PurchaseProductViewController: ButtonSectionControllerDelegate {
 
     func buttonSectionTapped(_ id: String) {
         insertPurchasedData()
+    }
+    
+    func random(digits:Int) -> String {
+        var number = String()
+        for _ in 1...digits {
+           number += "\(Int.random(in: 1...9))"
+        }
+        return number
     }
 }

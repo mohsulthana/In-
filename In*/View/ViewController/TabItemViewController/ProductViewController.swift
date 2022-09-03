@@ -29,7 +29,11 @@ class ProductViewController: UIViewController, UISearchResultsUpdating {
         })
     }
     
-    var products: [Product] = []
+    var products = [Product]() {
+        didSet {
+            products.sort { $0.name ?? "" < $1.name ?? "" }
+        }
+    }
     var searchResult: [Product] = []
     var searchController: UISearchController?
     let notif = NotificationManager()
@@ -173,8 +177,7 @@ extension ProductViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let editAction = UIContextualAction(style: .normal, title: "Edit") { _, _, completionHandler in
             let editProduct = EditProductViewController()
-            let productsArray = self.products.sorted { $0.name?.lowercased() ?? "" < $1.name?.lowercased() ?? "" }
-            editProduct.product = productsArray[indexPath.row]
+            editProduct.product = self.products[indexPath.row]
             editProduct.row = indexPath
             editProduct.vc = self
             self.present(UINavigationController(rootViewController: editProduct), animated: true, completion: nil)
