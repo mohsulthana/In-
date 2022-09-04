@@ -29,7 +29,7 @@ class OrderDetailViewController: UIViewController, ListAdapterDataSource {
         setupListdiffable()
         
         if status == .completed {
-            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.play, target: self, action: #selector(generatePDF(_:)))
+            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.save, target: self, action: #selector(generatePDF(_:)))
         }
         
         if status == .pending {
@@ -48,8 +48,14 @@ class OrderDetailViewController: UIViewController, ListAdapterDataSource {
     private func setupListdiffable() {
         var list: [ListDiffable] = []
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateFormat = "MM/dd/YYY"
+        
         if let order = order {
             list.append(DataDetailIdentifier("product name", title: "Product Name", value: order.name ?? ""))
+            list.append(DataDetailIdentifier("created on", title: "Created On", value: dateFormatter.string(from: order.createdOn ?? Date())))
             list.append(DataDetailIdentifier("quantity", title: "Quantity", value: "\(String(describing: order.quantity )) pcs"))
             list.append(DataDetailIdentifier("customer", title: "Customer", value: "\(order.customer?.name ?? "Customer Name")"))
             list.append(DataDetailIdentifier("delivery method", title: "Delivery Method", value: order.delivery?.value ?? ""))
@@ -111,7 +117,7 @@ class OrderDetailViewController: UIViewController, ListAdapterDataSource {
     
     @objc func generatePDF(_ sender: UIBarButtonItem) {
         if let order = order {
-            let pdfCreator = PDFCreator(title: "Completed Order", logo: UIImage(named: "logo") ?? UIImage(), date: Date(), invoice: order.invoice, name: order.name ?? "", brand: order.product?.brand ?? "", type: order.product?.type ?? "", quantity: order.quantity, price: order.totalPrice)
+            let pdfCreator = PDFCreator(title: "Completed Order", logo: UIImage(named: "logo") ?? UIImage(), date: order.createdOn ?? Date(), invoice: order.invoice, name: order.name ?? "", brand: order.product?.brand ?? "", type: order.product?.type ?? "", quantity: order.quantity, price: order.totalPrice)
             let documentData = pdfCreator.createFlyer()
             let pdfViewerVC = PDFPreviewViewController()
             pdfViewerVC.order = order

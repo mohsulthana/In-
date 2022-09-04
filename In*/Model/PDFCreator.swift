@@ -86,18 +86,23 @@ class PDFCreator: NSObject {
 
         // 3
         let renderer = UIGraphicsPDFRenderer(bounds: pageRect, format: format)
-        // 4
+        
         let data = renderer.pdfData { context in
-            // 5
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            dateFormatter.timeStyle = .none
+            dateFormatter.dateFormat = "MM/dd/YYY"
+            
             context.beginPage()
             let title = addTitle(pageRect: pageRect)
             addImage(pageRect: pageRect)
             addBodyText(text: "Product Name", content: productName, pageRect: pageRect, textTop: title + 16)
-            addBodyText(text: "Quantity", content: "\(quantity) pcs", pageRect: pageRect, textTop: title + 64)
+            addBodyText(text: "Created On", content: dateFormatter.string(from: date), pageRect: pageRect, textTop: title + 64)
             addBodyText(text: "Brand", content: brand, pageRect: pageRect, textTop: title + 108)
             addBodyText(text: "Total Price", content: "$\(price)", pageRect: pageRect, textTop: title + 154)
             addBodyText(text: "Type", content: type, pageRect: pageRect, textTop: title + 200)
-            
+            addBodyText(text: "Quantity", content: "\(quantity) pcs", pageRect: pageRect, textTop: title + 244)
         }
 
         return data

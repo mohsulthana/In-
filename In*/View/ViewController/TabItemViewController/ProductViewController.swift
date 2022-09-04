@@ -57,7 +57,6 @@ class ProductViewController: UIViewController, UISearchResultsUpdating {
         
         notif.userNotificationCenter?.delegate = self
         notif.requestNotificationAuthorization()
-        notif.sendNotification(product: "Hello")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,9 +76,12 @@ class ProductViewController: UIViewController, UISearchResultsUpdating {
                 DispatchQueue.main.async {
                     self.inventoryTableView.reloadData()
                     
-                    let zeroQuantity = self.products.filter { $0.quantity == 0  }
-                    let product = zeroQuantity.first?.name
-                    self.notif.sendNotification(product: product)
+                    let zeroQuantity = self.products.filter { $0.quantity == 0 }
+                    
+                    if !zeroQuantity.isEmpty {
+                        let product = zeroQuantity.first?.name
+                        self.notif.sendNotification(product: product)
+                    }
                 }
             } catch {
                 print("Unable to Execute Fetch Request, \(error)")

@@ -209,6 +209,18 @@ extension PurchaseProductViewController: ButtonSectionControllerDelegate {
             print(error)
         }
     }
+    
+    private func getTotalOrderNumber() -> Int {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Order")
+
+        do {
+            let result = try managedObjectContext.fetch(fetchRequest)
+            return result.count
+        } catch let error as NSError {
+            print(error)
+        }
+        return 0
+    }
 
     private func insertPurchasedData() {
         // core data object
@@ -253,7 +265,7 @@ extension PurchaseProductViewController: ButtonSectionControllerDelegate {
         orderObject.isPrepaid = isPrepaid
         orderObject.customer = customerObject
         orderObject.totalPrice = Double((quantity ?? 1) * Int(product?.price ?? 0))
-        orderObject.invoice = Int16(random(digits: 8)) ?? 0
+        orderObject.invoice = Int16(getTotalOrderNumber() + 1)
         orderObject.createdOn = Date()
 
         updateProductQuantity()
